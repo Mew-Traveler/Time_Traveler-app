@@ -5,9 +5,9 @@ class TimeTravelerApp < Sinatra::Base
   configure do
     Econfig.env = settings.environment.to_s
     Econfig.root = File.expand_path('..', settings.root)
-    Skyscanner::SkyscannerApi.config.update(skyscanner_id: config.SKYSCANNER_API)
-    Airbnb::AirbnbApi.config.update(airbnb_id: config.AIRBNB_API)
-    Google::GoogleApi.config.update(googlemap_id: config.GOOGLE_API)
+    #Skyscanner::SkyscannerApi.config.update(skyscanner_id: config.SKYSCANNER_API)
+    #Airbnb::AirbnbApi.config.update(airbnb_id: config.AIRBNB_API)
+    #Google::GoogleApi.config.update(googlemap_id: config.GOOGLE_API)
   end
 
   set :views, File.expand_path('../../views', __FILE__)

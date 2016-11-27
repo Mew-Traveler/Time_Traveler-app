@@ -10,5 +10,5 @@ class MovlogApp < Sinatra::Base
       flash[:error] = result.value.message
   end
 
-  slim: project_rent
+  slim :project_rent
 end
