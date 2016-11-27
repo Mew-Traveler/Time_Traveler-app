@@ -2,7 +2,6 @@
 require 'sinatra'
 require 'slim'
 require 'econfig'
-require 'movlog'
 
 require_relative 'base'
 

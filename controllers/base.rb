@@ -1,5 +1,5 @@
 #configure based on environment
-class MovlogApp < Sinatra::Base
+class TimeTravelerApp < Sinatra::Base
   extend Econfig::Shortcut
 
   configure do
