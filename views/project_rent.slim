@@ -1,0 +1,19 @@
+div class="row" style="vertical-align: bottom;"
+  div class="col-xs-9"
+    h3 All Groups
+  div class="col-xs-3"
+    button{ type="button" 
+      class="btn btn-success" 
+      data-toggle="modal" 
+      data-target="#getRentInfoModel" 
+    } + Search Hotel 
+    
+table class="table"
+  thead
+    tr
+      th Hotel Information
+  tbody
+    - @data&.rentInfos&.each do |rentInfo|
+      tr
+        td 
+          #{rentInfo[:id]}, #{rentInfo[:name]
