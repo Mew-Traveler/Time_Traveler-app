@@ -2,6 +2,8 @@
 require 'sinatra'
 require 'slim'
 require 'econfig'
+require 'http'
+require 'rack-flash'
 
 require_relative 'base'
 

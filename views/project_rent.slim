@@ -1,13 +1,13 @@
 div class="row" style="vertical-align: bottom;"
   div class="col-xs-9"
-    h3 All Groups
+    h3 All Choices
   div class="col-xs-3"
-    button{ type="button" 
-      class="btn btn-success" 
-      data-toggle="modal" 
-      data-target="#getRentInfoModel" 
-    } + Search Hotel 
-    
+    button{ type="button"
+      class="btn btn-success"
+      data-toggle="modal"
+      data-target="#getRentInfoModel"
+    } + Search Hotel
+
 table class="table"
   thead
     tr
@@ -15,5 +15,5 @@ table class="table"
   tbody
     - @data&.rentInfos&.each do |rentInfo|
       tr
-        td 
+        td
           #{rentInfo[:id]}, #{rentInfo[:name]}
