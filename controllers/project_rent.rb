@@ -7,13 +7,14 @@ class TimeTravelerApp < Sinatra::Base
   end
 
   post '/location/?' do
-    result = GetLocationHotel.call
+    location = UrlRequest.call(params)
+    result = GetLocationHotel.call(location)
     if result.success?
        @data = result.value
     else
        flash[:error] = result.value.message
     end
     
-    redirect '/'
+    # redirect '/'
   end
 end

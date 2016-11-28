@@ -1,13 +1,15 @@
 
-form.search style="width: 100%; position: relative;"
-  input.searchTerm type="text" placeholder="Which city will you live..." style="@include box-sizing(border-box);
+form.search role="form" action="/location" method='post' style="width: 100%; position: relative;"
+  input{type="text" name='location' placeholder="Which city will you live..."
+     style="@include box-sizing(border-box);
     width: 50%;
     border: 1px solid #0B0B61;
     padding: 10px;
     height: 40px;
     border-radius: 5px;
     font-size: 24px;
-    outline: none;"
+    outline: none;"}
+
   button.searchButton type="submit" style="position: relative; top: 0;
     left: 10px;
     top: -5px;

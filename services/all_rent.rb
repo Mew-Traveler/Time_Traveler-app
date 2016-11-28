@@ -2,6 +2,7 @@
 
 class GetLocationHotel
   extend Dry::Monads::Either::Mixin
+
   extend Dry::Container::Mixin
 
   def self.call(url_request)
@@ -25,7 +26,7 @@ class GetLocationHotel
 
   register :call_api_to_load_group, lambda { |url|
     begin
-      Right(HTTP.post("#{TimeTraveler.config.TIMETRAVELER_API}/location",
+      Right(HTTP.post("#{TimeTraveler.config.TIMETRAVELER_API}/rent/",
                       json: { url: url }))
     rescue
       Left(Error.new('Our servers failed - we are investigating!'))
