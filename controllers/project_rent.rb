@@ -3,12 +3,17 @@
 # TimeTraveler web service
 class TimeTravelerApp < Sinatra::Base
   get "/?" do
-    # result = TimeTraveler.call
-    # if result.success?
-    #   @data = result.value
-    # else
-    #   flash[:error] = result.value.message
-    # end
     slim :tmpView
+  end
+
+  post '/location/?' do
+    result = GetLocationHotel.call
+    if result.success?
+       @data = result.value
+    else
+       flash[:error] = result.value.message
+    end
+    
+    redirect '/'
   end
 end
