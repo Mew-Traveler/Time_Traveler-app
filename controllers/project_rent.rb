@@ -10,7 +10,7 @@ class TimeTravelerApp < Sinatra::Base
     location = UrlRequest.call(params)
     result = GetLocationHotel.call(location)
     if result.success?
-       @data = result.value
+       flash[:notice] = 'Return the result with the location'
     else
        flash[:error] = result.value.message
     end

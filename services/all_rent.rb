@@ -8,7 +8,7 @@ class GetLocationHotel
   def self.call(url_request)
     Dry.Transaction(container: self) do
       step :validate_url_request
-      step :call_api_to_load_movie
+      step :call_api_to_load_hotel
       step :return_api_result
     end.call(url_request)
   end
@@ -24,7 +24,7 @@ class GetLocationHotel
     end
   }
 
-  register :call_api_to_load_group, lambda { |url|
+  register :call_api_to_load_hotel, lambda { |url|
     begin
       Right(HTTP.post("#{TimeTraveler.config.TIMETRAVELER_API}/rent/",
                       json: { url: url }))

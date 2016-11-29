@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 UrlRequest = Dry::Validation.Form do
-  required(:location)
+  required(:location).filled
 
   # configure do
   #   config.messages_file = File.join(__dir__, 'errors/url_request.yml')
