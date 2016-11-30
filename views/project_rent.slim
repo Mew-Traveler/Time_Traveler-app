@@ -1,18 +1,14 @@
-div class="row" style="vertical-align: bottom;"
-  div class="col-xs-9"
-    h3 All Choices
-  div class="col-xs-3"
-    button{ type="button"
-      class="btn btn-success"
-      data-toggle="modal"
-      data-target="#getRentInfoModel"
-    } + Search Hotel
+form.search action="/rent" method="get"
+  input.searchTerm name="live_location" type="text" placeholder="Which city you wanna stay ..."
+  button.searchButton type="submit"
+    | FIND IT.
 
-table class="table"
-  thead
-    tr
-      th Hotel Information
-  tbody
-    - @data&.rentInfos&.each do |rentInfo|
+- unless @data.nil?
+  table class="table"
+    thead
+      tr
+        th Rooms Information
+    tbody
       tr
         td
+          a href="/rent/#{@data}" #{@data}

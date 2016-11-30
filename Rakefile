@@ -1,3 +1,3 @@
 task :run do
-  sh 'rerun "rackup -p 9000"'
+  sh 'rerun "rackup -p 3000"'
 end

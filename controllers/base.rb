@@ -9,6 +9,8 @@ class TimeTravelerApp < Sinatra::Base
     #Airbnb::AirbnbApi.config.update(airbnb_id: config.AIRBNB_API)
     #Google::GoogleApi.config.update(googlemap_id: config.GOOGLE_API)
   end
+  use Rack::Session::Cookie
+  use Rack::Flash
 
   set :views, File.expand_path('../../views', __FILE__)
   set :public_dir, File.expand_path('../../public', __FILE__)
