@@ -26,7 +26,7 @@ class GetLocationHotel
 
   register :call_api_to_load_hotel, lambda { |url|
     begin
-      Right(HTTP.post("#{TimeTravelerApp.config.TIMETRAVELER_API}/rent",
+      Right(HTTP.post("#{TimeTravelerApp.config.TIMETRAVELER_API}/rent/",
                       json: { url: url }))
     rescue
       Left(Error.new('Our servers failed - we are investigating!'))
