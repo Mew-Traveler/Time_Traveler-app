@@ -18,9 +18,9 @@ class TimeTraveler
     # print "infos: \n"
     # print resultsToJSON
     puts
-    #Right(RentsRepresenter.new(Rents.new)
-    #                       .from_json(JSON.parse(roomsInfo)))
-    Right(roomsInfo)
+    Right(RentsRepresenter.new(Rents.new)
+                           .from_json(results.body.to_s))
+    #Right(roomsInfo)
   rescue
     Left(Error.new('Our servers failed - we are investigating!'))
   end
