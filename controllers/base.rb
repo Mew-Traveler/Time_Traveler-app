@@ -1,14 +1,21 @@
 #configure based on environment
+configure :development do
+  def reload!
+    # Tux reloading: https://github.com/cldwalker/tux/issues/3
+    exec $PROGRAM_NAME, *ARGV
+  end
+end
+
 class TimeTravelerApp < Sinatra::Base
   extend Econfig::Shortcut
 
   configure do
     Econfig.env = settings.environment.to_s
     Econfig.root = File.expand_path('..', settings.root)
-    #Skyscanner::SkyscannerApi.config.update(skyscanner_id: config.SKYSCANNER_API)
-    #Airbnb::AirbnbApi.config.update(airbnb_id: config.AIRBNB_API)
-    #Google::GoogleApi.config.update(googlemap_id: config.GOOGLE_API)
   end
+  use Rack::Session::Cookie
+  use Rack::Flash
+
   use Rack::Session::Cookie
   use Rack::Flash
 

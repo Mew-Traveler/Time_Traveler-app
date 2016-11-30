@@ -25,4 +25,16 @@ class TimeTravelerApp < Sinatra::Base
     end
     slim :project_rent
   end
+
+  post '/location/?' do
+    location = UrlRequest.call(params)
+    result = GetLocationHotel.call(location)
+    if result.success?
+       flash[:notice] = 'Return the result with the location'
+    else
+       flash[:error] = result.value.message
+    end
+
+    # redirect '/'
+  end
 end
