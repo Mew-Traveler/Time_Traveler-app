@@ -1,14 +1,73 @@
-form.search action="/rent" method="get"
-  input.searchTerm name="live_location" type="text" placeholder="Which city you wanna stay ..."
-  button.searchButton type="submit"
-    | FIND IT.
+div class="well" style="width: 100%;"
+  h1 New Itinerary
+  a.hover Add hotel & some basic information for each day!
 
-- unless @data.nil?
-  table class="table"
-    thead
-      tr
-        th Rooms Information
-    tbody
-      tr
-        td
-          a href="/rent/#{@data}" #{@data}
+div class="well" style="width: 100%;"
+  /for i in 0..@data&.project_day
+    button.btn.btn-default type="submit" style="position: relative;
+      border-radius: 5px;
+      margin: 5px;
+      cursor: pointer;" DAY
+
+div class = "panel panel-default" style="width: 100% hight: 100%"
+
+  div class = "panel panel-default" style="width: 50%; position: relative; float: left; margin: 10px;"
+    form role="form" class = "row" action="/origin" method='post' style="width: 100%; position: relative;"
+      .form-group
+      div class = "row" style = "margin: 5px"
+        label class = "col-md-4" style="text-align: center; font-family: Sans-serif; font-size: 25px;" Origin
+        input {type="text" class = "col-md-8" name='origin' placeholder="Origin for each day"
+          style="height: 40px; font-size: 18px;"}
+
+      div class = "row" style = "margin: 5px"
+        label class = "col-md-4" style="text-align: center; font-family: Sans-serif; font-size: 25px;" Destination
+        input{type="text" class = "col-md-8" name='destination' placeholder="Destination for each day"
+          style="height: 40px; font-size: 18px;"}
+
+      div class = "row" style = "margin: 5px"
+        label class = "col-md-4" style="text-align: center; font-family: Sans-serif; font-size: 25px;" Start Time
+        input{type="text" class = "col-md-8" name='start' placeholder="Start time for each day"
+          style="height: 40px; font-size: 18px;"}
+
+      div class = "row" style = "margin: 5px"
+        label class = "col-md-4" style="text-align: center; font-family: Sans-serif; font-size: 25px;" End Time
+        input{type="text" class = "col-md-8" name='end' placeholder="End time for each day"
+          style="height: 40px; font-size: 18px;"}
+      
+      div class = "row" style = "margin: 5px"
+        div class = "row" style = "margin: 5px;"
+          div class = "col-md-5"
+          button.btn.btn-default class = "col-md-2" type="submit" style="position: relative; margin-left: auto; margin-right: auto; 
+            height: 50px;
+            border-radius: 5px;
+            cursor: pointer;" SAVE
+          div class = "col-md-5"
+
+  div class = "panel panel-default" style="width: 45%; position: relative; float: right; margin: 10px;"
+    form role="form" class = "row" action="/location" method='post' style="width: 100%; position: relative;"
+      .form-group
+      label class = "col-md-2" style="text-align: center; font-family: Sans-serif; font-size: 25px;" City
+      input{type="text" class = "col-md-7" name='location' placeholder="Which city will you live"
+         style="height: 40px; font-size: 18px;"}
+      div class = "col-md-1"
+      button.btn.btn-default data-target="#showAllHotelModal" class = "col-md-2" type="submit" style="position: relative; top: 0;
+        border-radius: 5px;
+        cursor: pointer;" FIND
+    div class = "row" style = "margin: 5px;"
+
+- unless @roomData.nil?
+    div class = "panel panel-default" style="width: 45%; position: relative; float: right; margin: 10px;"
+      div class = "row=3 col-md-3"
+        div class = "col-md-2 row=3"
+         p Image
+        div class = "col-md-1 row=3"
+          div class = "row=1"
+            p Name
+          div class = "row=1"
+            p Room
+          div class = "row=1"
+            p RoomRank
+      div class = "row=4 col-md-3"
+        a href = "datalink"
+
+include :project_rent_partial
