@@ -6,7 +6,7 @@ class TimeTravelerApp < Sinatra::Base
     slim :project_rent
   end
   get "/rent/?" do
-  
+
     # url_request = CreateNewRoom.call()
     result = TimeTraveler.call(params[:live_location])
 
@@ -22,6 +22,18 @@ class TimeTravelerApp < Sinatra::Base
       flash[:error] = result.value.message
     end
     slim :project_rent
+  end
+
+  post "/daily/basic/?" do
+    url_request = UrlRequest.call(params)
+    result = CreateNewDailyBasic.call(url_request)
+    if result.success?
+      print "hihihi"
+      flash[:notice] = 'Basic daily successfully added'
+    else
+      flash[:error] = result.value.message
+    end
+    redirect '/'
   end
 
   post '/location/?' do
