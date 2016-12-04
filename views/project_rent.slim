@@ -33,41 +33,31 @@ div class = "panel panel-default" style="width: 100% hight: 100%"
         label class = "col-md-4" style="text-align: center; font-family: Sans-serif; font-size: 25px;" End Time
         input{type="text" class = "col-md-8" name='end' placeholder="End time for each day"
           style="height: 40px; font-size: 18px;"}
-      
+
       div class = "row" style = "margin: 5px"
         div class = "row" style = "margin: 5px;"
           div class = "col-md-5"
-          button.btn.btn-default class = "col-md-2" type="submit" style="position: relative; margin-left: auto; margin-right: auto; 
+          button.btn.btn-default class = "col-md-2" type="submit" style="position: relative; margin-left: auto; margin-right: auto;
             height: 50px;
             border-radius: 5px;
             cursor: pointer;" SAVE
           div class = "col-md-5"
 
   div class = "panel panel-default" style="width: 45%; position: relative; float: right; margin: 10px;"
-    form role="form" class = "row" action="/location" method='post' style="width: 100%; position: relative;"
+    form role="form" class = "row" action="/rent" method='get' style="width: 100%; position: relative;"
       .form-group
       label class = "col-md-2" style="text-align: center; font-family: Sans-serif; font-size: 25px;" City
-      input{type="text" class = "col-md-7" name='location' placeholder="Which city will you live"
+      input{type="text" class = "col-md-7" name='live_location' placeholder="Which city will you live"
          style="height: 40px; font-size: 18px;"}
       div class = "col-md-1"
-      button.btn.btn-default data-target="#showAllHotelModal" class = "col-md-2" type="submit" style="position: relative; top: 0;
+      button.btn.btn-default data-toggle="modal" data-target="#showAllHotelModal" class = "col-md-2" type="submit" style="position: relative; top: 0;
         border-radius: 5px;
         cursor: pointer;" FIND
     div class = "row" style = "margin: 5px;"
 
-- unless @roomData.nil?
-    div class = "panel panel-default" style="width: 45%; position: relative; float: right; margin: 10px;"
-      div class = "row=3 col-md-3"
-        div class = "col-md-2 row=3"
-         p Image
-        div class = "col-md-1 row=3"
-          div class = "row=1"
-            p Name
-          div class = "row=1"
-            p Room
-          div class = "row=1"
-            p RoomRank
-      div class = "row=4 col-md-3"
-        a href = "datalink"
+- unless @data.nil?
+  - @data&.results&.each do |rent|
+    div class = "panel panel-default" style="width: 45%; position: relative; float: left; margin: 10px;"
+      p #{rent[:name]}
 
 include :project_rent_partial

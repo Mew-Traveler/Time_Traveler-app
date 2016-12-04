@@ -6,7 +6,9 @@ class RentRepresenter < Roar::Decorator
 
   property :id
   property :name
-  property :pic_url
-  property :city
-
+  property :address
+  property :airbnb_link
+  property :roomImg
+  property :bed
+  property :roomRank
 end

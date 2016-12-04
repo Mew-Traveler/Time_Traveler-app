@@ -1,3 +1,3 @@
 # frozen_string_literal: true
 
-Rents = Struct.new :rents
+Rents = Struct.new :results

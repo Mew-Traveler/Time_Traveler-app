@@ -6,9 +6,7 @@ class TimeTravelerApp < Sinatra::Base
     slim :project_rent
   end
   get "/rent/?" do
-    print "project_rent"
-    print params.to_s
-
+  
     # url_request = CreateNewRoom.call()
     result = TimeTraveler.call(params[:live_location])
 

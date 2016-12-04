@@ -1,4 +1,4 @@
-div id = "showAllHotelModal" class = "modal fade" role = "dialog"
+div id="showAllHotelModal" class = "modal fade" role = "dialog"
   div class = "modal-dialog"
   	div class = "modal-content"
   	  div class = "modal-header"
@@ -6,15 +6,15 @@ div id = "showAllHotelModal" class = "modal fade" role = "dialog"
   	  div class = "modal-body"
   	    form role = "form" action = "/hotel" method = 'post' id = 'candidate-hotel-form'
           tbody
-  	        -@data&.hotels&.each do |hotel|
+  	        -data&.results&.each do |hotel|
   	          tr
   	            td
-  	              div class = "row" type="submit" 
+  	              div class = "row" type="submit"
   	                div class = "col-md-2"
-  	                  #{hotel[:img]} 
+  	                  #{hotel[:roomImg]}
   	                div class = "col-md-4"
   	                  #{hotel[:name]}
   	                div class = "col-md-4"
   	                  #{hotle[:bed]}
   	                div class = "col-md-2"
-  	                  #{hotel[:rank]}
+  	                  #{hotel[:roomRank]}
