@@ -1,0 +1,49 @@
+div class="well" style="width: 100%;"
+  h1 Dailyplan
+  a.hover Arrange your own trip!
+  form role="form" method='post'
+	button.btn.btn-default type="submit" style="position: relative;
+	  border-radius: 5px;
+	  margin: 5px;
+	  cursor: pointer;" Logout
+
+div class = "container"
+  ul class="pager" style="position: absolute; width: 100%; top: 50%; left: 0;"
+    li class="btn btn-default" style="color: black; position: absolute; left: 0%; margin-left: 3%;" start
+    - unless @data.nil?
+      - @data&.results&.each do |rent|
+	    li class="btn btn-default" style="color: black; position: absolute; right: 100/@data&.results.count%; margin-right: 3%; margin-left: 3%" data-target="#showSiteModel" end		
+    li class="btn btn-default" style="color: black; position: absolute; right: 0%; margin-right: 3%;" end
+
+div class = "container"
+  ul class="pager" style="position: absolute; width: 100%; top: 75%; left: 0;"
+    div class = "panel panel-default" style="width: 40%; position: absolute; left: 30%; margin: 10px;"
+      form role="form" class = "row" action="/rent" method='get' style="width: 100%; position: relative;"
+      .form-group
+        label class = "col-md-2" style="text-align: center; font-family: Sans-serif; font-size: 25px;" Site
+        input{type="text" class = "col-md-7" name='live_location' placeholder="Where you want to go?"
+           style="height: 40px; font-size: 18px;"}
+        div class = "col-md-1"
+        button.btn.btn-default data-toggle="modal" data-target="#findSiteModel" class = "col-md-2" type="submit" style="position: relative; top: 0;
+          border-radius: 5px;
+          cursor: pointer;" FIND
+      div class = "row" style = "margin: 5px;"
+
+div class = "pager" style="position: absolute; width: 100%; bottom: 4%; left: 0;"
+  form role="form" method='post'
+	button.btn.btn-default class = "previous" type="submit" style="position: absolute;
+	  top: 1%;
+	  left: 0;
+	  margin-left: 3%;
+	  border-radius: 5px;
+	  margin: 5px;
+	  cursor: pointer;" Prev
+	button.btn.btn-default class = "next" type="submit" style="position: absolute;
+	  top: 1%;
+	  right: 0;
+	  margin-right: 3%;
+	  border-radius: 5px;
+	  margin: 5px;
+	  cursor: pointer;" Next
+
+include :addtarget_find_partial, :addtarget_show

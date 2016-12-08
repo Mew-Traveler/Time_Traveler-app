@@ -1,0 +1,20 @@
+div id="findSiteModel" class = "modal fade" role = "dialog"
+  div class = "modal-dialog"
+  	div class = "modal-content"
+  	  div class = "modal-header"
+  		h4 Candidate Sites
+  	  div class = "modal-body"
+  	    form role = "form" action = "/site" method = 'post' id = 'candidate-site-form'
+          tbody
+  	        -data&.results&.each do |site|
+  	          tr
+  	            td
+  	              div class = "row" type="submit"
+  	                div class = "col-md-2"
+  	                  #{site[:sitename]}
+  	                div class = "col-md-4"
+  	                  #{site[:address]}
+  	                div class = "col-md-4"
+  	                  #{site[:dis]}
+  	                div class = "col-md-2"
+  	                  #{site[:rank]}
