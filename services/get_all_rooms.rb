@@ -6,6 +6,7 @@ class GetAllRooms
 
   def self.call(location)
     results = HTTP.get("#{TimeTravelerApp.config.Time_Traveler_API}/getHouses/#{location}")
+    puts results
     Right(RentsRepresenter.new(Rents.new).from_json(results.body))
   rescue
     Left(Error.new('Our servers failed - we are investigating!'))

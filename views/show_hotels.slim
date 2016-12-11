@@ -1,0 +1,37 @@
+<div class="panel panel-default" style="margin-top: 10px;">
+<div class="container-fluid bg-3 text-center" style="margin: 10px;">   
+  <div class="row">
+    <div class="col-sm-1">
+      <div class="panel-body" style="font-size: 50px;">Time_Traveler</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="panel-body" style="font-size: 20px;">Candidate Hotels</div>
+    </div>
+  </div>
+</div>
+</div>
+
+- unless @data.nil?
+  <div class="container">
+    div class = "row" style = "margin: 10px"
+      div class = "col-sm-4" style = "font-size: 25px; font-weight: bold" Name
+      div class = "col-sm-4" style = "font-size: 25px; font-weight: bold" Address
+      div class = "col-sm-1" style = "font-size: 25px; font-weight: bold" Bed
+      div class = "col-sm-1" style = "font-size: 25px; font-weight: bold" Rank
+  - @data&.results&.each do |rent|
+    <hr>
+    div class = "row" style = "margin: 10px"
+      div class = "col-sm-4"
+        p #{rent[:name]}
+      div class = "col-sm-4"
+        p #{rent[:address]}
+      div class = "col-sm-1"
+        p #{rent[:bed]}
+      div class = "col-sm-1"
+        p #{rent[:roomRank]}
+      div class = "col-sm-1"
+      div class = "col-sm-1"
+        <button type="submit" class="btn btn-primary" style="position: relative; top: 0; border-radius: 5px; cursor: pointer;">Choose</button>      
+  </div>

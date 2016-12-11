@@ -9,7 +9,7 @@ gem 'econfig'
 gem 'rake'
 gem 'slim'
 gem 'rack-flash3'
-gem 'Time_Traveler', '0.1.71'
+gem 'Time_Traveler', '0.1.72'
 
 gem 'http'
 

@@ -12,7 +12,7 @@ class TimeTravelerApp < Sinatra::Base
       flash[:error] = result.value.message
     end
 
-    slim :project_rent
+    slim :show_hotels
   end
 
 end
