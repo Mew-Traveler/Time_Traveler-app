@@ -3,7 +3,7 @@
 # TimeTraveler web service
 class TimeTravelerApp < Sinatra::Base
   get "/?" do
-    slim :lobby
+    slim :project_rent
   end
   get "/rent/?" do
 

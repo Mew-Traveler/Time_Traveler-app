@@ -1,9 +1,27 @@
-div class="well" style="width: 100%;"
-  h1 New Itinerary
-  a.hover Add hotel & some basic information for each day!
+<div class="panel panel-default" style="margin-top: 10px;">
+<div class="container-fluid bg-3 text-center" style="margin: 10px;">   
+  <div class="row">
+    <div class="col-sm-2">
+      <div class="panel-body" style="font-size: 50px;">New_Itinerary</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-7">
+      <div class="panel-body" style="font-size: 20px; position: absolute; left: 0;">Please give us some basic information!</div>
+    </div>
+    <div class="col-sm-3">
+    </div>
+    <div class="col-sm-1">
+    </div>
+    <div class="col-sm-1">
+      <button type="button" class="btn btn-primary">Logout</button>
+    </div>
+  </div>
+</div>
+</div>
 
 form role="form" method='post'
-  div class="well" style="width: 100%;"
+  div class="panel panel-default" style="width: 100%;"
     /for i in 0..@data&.project_day
       button.btn.btn-default type="submit" style="position: relative;
         border-radius: 5px;
@@ -15,22 +33,22 @@ div class = "panel panel-default" style="width: 100% hight: 100%"
   div class = "panel panel-default" style="width: 50%; position: relative; float: left; margin: 10px;"
     form role="form" class = "row" action="/daily/basic" method='post' style="width: 100%; position: relative;"
       .form-group
-      div class = "row" style = "margin: 5px"
+      div class = "row" style = "margin: 5px; margin-bottom: 15px;"
         label class = "col-md-4" style="text-align: center; font-family: Sans-serif; font-size: 25px;" Origin
         input {type="text" class = "col-md-8" name='origin' placeholder="Origin for each day"
           style="height: 40px; font-size: 18px;"}
 
-      div class = "row" style = "margin: 5px"
+      div class = "row" style = "margin: 5px; margin-bottom: 15px;"
         label class = "col-md-4" style="text-align: center; font-family: Sans-serif; font-size: 25px;" Destination
         input{type="text" class = "col-md-8" name='destination' placeholder="Destination for each day"
           style="height: 40px; font-size: 18px;"}
 
-      div class = "row" style = "margin: 5px"
+      div class = "row" style = "margin: 5px; margin-bottom: 15px;"
         label class = "col-md-4" style="text-align: center; font-family: Sans-serif; font-size: 25px;" Start Time
         input{type="text" class = "col-md-8" name='start' placeholder="Start time for each day"
           style="height: 40px; font-size: 18px;"}
 
-      div class = "row" style = "margin: 5px"
+      div class = "row" style = "margin: 5px; margin-bottom: 15px;"
         label class = "col-md-4" style="text-align: center; font-family: Sans-serif; font-size: 25px;" End Time
         input{type="text" class = "col-md-8" name='end' placeholder="End time for each day"
           style="height: 40px; font-size: 18px;"}
@@ -38,7 +56,7 @@ div class = "panel panel-default" style="width: 100% hight: 100%"
       div class = "row" style = "margin: 5px"
         div class = "row" style = "margin: 5px;"
           div class = "col-md-5"
-          button.btn.btn-default class = "col-md-2" type="submit" style="position: relative; margin-left: auto; margin-right: auto;
+          button.btn.btn-primary class = "col-md-2" type="submit" style="position: relative; margin-left: auto; margin-right: auto;
             height: 50px;
             border-radius: 5px;
             cursor: pointer;" SAVE
@@ -51,7 +69,7 @@ div class = "panel panel-default" style="width: 100% hight: 100%"
       input{type="text" class = "col-md-7" name='live_location' placeholder="Which city will you live"
          style="height: 40px; font-size: 18px;"}
       div class = "col-md-1"
-      button.btn.btn-default data-toggle="modal" data-target="#showAllHotelModal" class = "col-md-2" type="submit" style="position: relative; top: 0;
+      button.btn.btn-primary data-toggle="modal" data-target="#showAllHotelModal" class = "col-md-2" type="submit" style="position: relative; top: 0;
         border-radius: 5px;
         cursor: pointer;" FIND
     div class = "row" style = "margin: 5px;"
