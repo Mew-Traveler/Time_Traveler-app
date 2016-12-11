@@ -1,12 +1,12 @@
 # Time_Traveler-app
 The repo is for the front-end
 
-# Welcome Time_Traveler in "https://timepo-viajero.herokuapp.com/"
+** Welcome Time_Traveler in "https://timepo-viajero.herokuapp.com/" **
 
-#Routes
-/: Login page
-/project: Add new projects
-/rent: More information for projects
+** Routes **
+> /: Login page
+> /project: Add new projects
+> /rent: More information for projects
 
-#More Detail
-fix2run is the up to date service.
+** More Detail **
+> fix2run is the up to date service.
