@@ -2,13 +2,13 @@
 
 # TimeTraveler web service
 class TimeTravelerApp < Sinatra::Base
-  get "/?" do
-    slim :project_rent
-  end
+  # get "/?" do
+  #   slim :project_rent
+  # end
   get "/rent/?" do
 
     # url_request = CreateNewRoom.call()
-    result = TimeTraveler.call(params[:live_location])
+    result = RentInfoClass.call(params[:live_location])
 
         # result = TimeTraveler.call(body_params['city'])
     # result = TimeTraveler.call

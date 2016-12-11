@@ -1,0 +1,5 @@
+div id="showAllProjects" class = "modal fade" role = "dialog"
+  		h4 Candidate Hotels
+  	  div class = "projectbuts"
+        -data&.results&.each do |project|
+          button.btn.btn-success type="button"  #{project[:name]}

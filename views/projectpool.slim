@@ -1,0 +1,17 @@
+div class="well" style="width: 100%;"
+  <p class="text-center"
+  b
+    font color="008800" size="20" TimeTraveler
+    br/
+    a.hover Start Your Itinerary :)
+div class = "default" style="width: 100% hight: 100%"
+    div class = "row" style = "margin: 5px"
+      div class = "row" style = "margin: 5px;"
+        div class = "col-md-5"
+        button.btn.btn-default class = "col-md-2" type="submit" style="position: relative; margin-left: auto; margin-right: auto;
+          height: 50px;
+          border-radius: 5px;
+          cursor: pointer;" ADD
+        div class = "col-md-5"
+- unless @data.nil?
+  include :project_rent_partial

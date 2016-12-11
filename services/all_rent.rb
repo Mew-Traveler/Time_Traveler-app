@@ -2,7 +2,7 @@
 
 # Gets list of all groups from API
 require 'json'
-class TimeTraveler
+class RentInfoClass
   extend Dry::Monads::Either::Mixin
 
   def self.call(locate)
