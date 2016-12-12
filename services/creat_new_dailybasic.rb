@@ -27,7 +27,9 @@ class CreateNewDailyBasic
     begin
       remain = url_request[:end].to_i - url_request[:start].to_i
       Right(HTTP.post("#{TimeTravelerApp.config.Time_Traveler_API}/myproject/dailyplan",
-                      json: { projectId: "01", roomId:"0001", nthday:"1", timeStart: url_request[:start], timeEnd: url_request[:end],locateStart:url_request[:origin], locateEnd:url_request[:destination], timeRemain:remain }))
+                      json: { projectId: "01", roomId:"0001", nthday:"1", timeStart: url_request[:start],
+                         timeEnd: url_request[:end],locateStart:url_request[:origin], locateEnd:url_request[:destination],
+                          timeRemain:remain }))
     rescue
       Left(Error.new('Something Error in loading dailybasic '))
     end
