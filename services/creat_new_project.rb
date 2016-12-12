@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
 # Gets list of all groups from API
-class CreateUser
+class CreateNewProjectInfo
   extend Dry::Monads::Either::Mixin
   extend Dry::Container::Mixin
 
   def self.call(url_request)
     Dry.Transaction(container: self) do
       step :validate_url_request
-      step :call_api_to_load_user
+      step :call_api_to_load_project
     end.call(url_request)
   end
 
@@ -23,13 +23,14 @@ class CreateUser
     end
   }
 
-  register :call_api_to_load_user, lambda { |url_request|
+  register :call_api_to_load_project, lambda { |url_request|
     begin
-      userEmail = url_request[:formEmail]
-      Right(HTTP.post("#{TimeTravelerApp.config.Time_Traveler_API}/me/?",
-                      json: { userEmail: userEmail}))
+      remain = url_request[:end].to_i - url_request[:start].to_i
+      Right(HTTP.post("#{TimeTravelerApp.config.Time_Traveler_API}/myproject",
+                      json: { projectName: params['projectName'], userEmail: params['userEmail'], dateEnd: params['dateEnd'],
+                       dateStart: params['dateStart'] }))
     rescue
-      Left(Error.new('Something Error in registering /me '))
+      Left(Error.new('Something Error in loading project '))
     end
   }
 end
