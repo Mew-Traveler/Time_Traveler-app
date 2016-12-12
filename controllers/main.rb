@@ -4,7 +4,7 @@ class TimeTravelerApp < Sinatra::Base
   end
 
   post "/user/?" do
-    url_request = UrlRequest.call(params)
+    url_request = ProfileVal.call(params)
     puts url_request
     result = CreateUser.call(url_request)
     if result.success?
