@@ -25,7 +25,7 @@ class CreateUser
 
   register :call_api_to_load_user, lambda { |url_request|
     begin
-      userEmail = url_request[:userEmail]
+      userEmail = url_request[:form-Email]
       Right(HTTP.post("#{TimeTravelerApp.config.Time_Traveler_API}/me/?",
                       json: { userEmail: userEmail}))
     rescue

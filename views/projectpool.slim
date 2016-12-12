@@ -8,10 +8,28 @@ div class = "default" style="width: 100% hight: 100%"
     div class = "row" style = "margin: 5px"
       div class = "row" style = "margin: 5px;"
         div class = "col-md-5"
-        button.btn.btn-default class = "col-md-2" type="submit" style="position: relative; margin-left: auto; margin-right: auto;
+        button.btn.btn-default class = "col-md-2" data-toggle="modal" data-target="#newProject" style="position: relative; margin-left: auto; margin-right: auto;
           height: 50px;
           border-radius: 5px;
           cursor: pointer;" ADD
-        div class = "col-md-5"
-- unless @data.nil?
-  include :project_rent_partial
+div id="newProject" class="modal fade" role="dialog"
+  div class="modal-dialog"
+    div class="modal-content"
+      div class="modal-header"
+        div class = "row" style = "margin: 5px"
+          label style="text-align: center; font-size: 25px;" Project Name
+          input{
+            type="text" name='projectname' placeholder="Project Name"
+            style="margin: 20px; height: 40px; font-size: 18px;"
+            }
+          br/
+          label style="text-align: center; font-size: 25px;" Duration
+          input{
+            type="text" name='projectduration' placeholder="Duration"
+            style="margin: 20px; height: 40px; font-size: 18px;"
+            }
+          br/
+          button.btn.btn-default class="pull-right" data-toggle="modal" data-target="#newProject" style="position: relative; margin-left: auto; margin-right: auto;
+            height: 50px;
+            border-radius: 5px;
+            cursor: pointer;" NEXT
