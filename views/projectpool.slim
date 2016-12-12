@@ -20,14 +20,17 @@ div id="newProject" class="modal fade" role="dialog"
           label style="text-align: center; font-size: 25px;" Project Name
           input{
             type="text" name='projectname' placeholder="Project Name"
-            style="margin: 20px; height: 40px; font-size: 18px;"
+            style="margin: 37px; height: 40px; font-size: 18px;"
             }
           br/
-          label style="text-align: center; font-size: 25px;" Duration
-          input{
-            type="text" name='projectduration' placeholder="Duration"
-            style="margin: 20px; height: 40px; font-size: 18px;"
-            }
+          .col-sm-4
+            label style="text-align: center; font-size: 25px;" Duration
+          .col-sm-8
+            .form-group
+              #datetimepicker1.input-group.date
+                input.form-control type="text" /
+                span.input-group-addon
+                  span.glyphicon.glyphicon-calendar
           br/
           button.btn.btn-default class="pull-right" data-toggle="modal" data-target="#newProject" style="position: relative; margin-left: auto; margin-right: auto;
             height: 50px;

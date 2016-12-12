@@ -5,7 +5,10 @@ The repo is for the front-end
 
 ** Routes **
 
-/: Login page /project: Add new projects /rent: More information for projects
+>/: Login page
+>/project: Add new projects
+>/rent: More information for projects
+
 ** More Detail **
 
 fix2run is the up to date service.
