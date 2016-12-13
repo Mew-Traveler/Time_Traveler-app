@@ -13,6 +13,7 @@ class TimeTravelerApp < Sinatra::Base
       flash[:error] = result.value.message
     end
     @email = url_request[:formEmail]
-    slim :projectpool
+    # slim :projectpool
+    redirect "/projects/#{@email}?"
   end
 end

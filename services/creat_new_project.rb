@@ -13,9 +13,13 @@ class CreateNewProjectInfo
   end
 
   register :validate_url_request, lambda { |url_request|
+    puts "-----validate_url_request----"
+    puts url_request[:fromdate]
     if url_request.success?
+      puts "url_request.success?"
       Right(url_request)
     else
+      puts "else-url_request.success?"
       message = ErrorFlattener.new(
         ValidationError.new(url_request)
       ).to_s
@@ -23,13 +27,15 @@ class CreateNewProjectInfo
     end
   }
 
-  register :call_api_to_load_project, lambda { |url_request|
+  register :call_api_to_load_project, lambda { |params|
     begin
-      remain = url_request[:end].to_i - url_request[:start].to_i
+      puts "call-load-project"
+      puts params[:projectname]
       Right(HTTP.post("#{TimeTravelerApp.config.Time_Traveler_API}/myproject",
-                      json: { projectName: params['projectName'], userEmail: params['userEmail'], dateEnd: params['dateEnd'],
-                       dateStart: params['dateStart'] }))
+                      json: { projectName: params[:projectname], userEmail: params[:user], dateEnd: params[:todate],
+                       dateStart: params[:fromdate] }))
     rescue
+      puts "Something Error in loading project"
       Left(Error.new('Something Error in loading project '))
     end
   }

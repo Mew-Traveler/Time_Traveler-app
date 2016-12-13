@@ -13,6 +13,7 @@ div class = "default" style="width: 100% hight: 100%"
           border-radius: 5px;
           cursor: pointer;" ADD
 form role="form" class = "row" action="/projectInfo/?" method='post' style="width: 100%; position: relative;"
+
   div id="newProject" class="modal fade" role="dialog"
     div class="modal-dialog"
       div class="modal-content"
@@ -23,13 +24,14 @@ form role="form" class = "row" action="/projectInfo/?" method='post' style="widt
               type="text" name='projectname' placeholder="Project Name"
               style="margin: 37px; height: 40px; font-size: 18px;"
               }
+            input name="user" type="hidden" value="#{@user}" /
             br/
             .col-sm-4
               label style="text-align: center; font-size: 25px;" FROM
             .col-sm-8
               .form-group
                 #datetimepickerFrom.input-group.date
-                  input#fromdate.form-control type="text" /
+                  input#fromdate.form-control type="text" name='fromdate'/
                   span.input-group-addon
                     span.glyphicon.glyphicon-calendar
             br/
@@ -38,7 +40,7 @@ form role="form" class = "row" action="/projectInfo/?" method='post' style="widt
             .col-sm-8
               .form-group
                 #datetimepickerTo.input-group.date
-                  input#todate.form-control type="text" /
+                  input#todate.form-control type="text" name='todate' /
                   span.input-group-addon
                     span.glyphicon.glyphicon-calendar
 
@@ -47,3 +49,7 @@ form role="form" class = "row" action="/projectInfo/?" method='post' style="widt
               height: 50px;
               border-radius: 5px;
               cursor: pointer;" NEXT
+- unless @projectinfo.nil?
+  - @projectinfo&.each do |project|
+    div class = "panel panel-default" style="width: 45%; position: relative; float: left; margin: 10px;"
+      a href="/myproject/#{project[:id]}" #{project[:name]}
