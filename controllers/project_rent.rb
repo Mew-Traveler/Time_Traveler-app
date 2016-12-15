@@ -2,8 +2,8 @@
 
 # TimeTraveler web service
 class TimeTravelerApp < Sinatra::Base
-  get "/?" do
-    slim :login
+  get "/project_rent/?" do
+    slim :project_rent
   end
   get "/rent/?" do
 
@@ -28,7 +28,6 @@ class TimeTravelerApp < Sinatra::Base
     url_request = UrlRequest.call(params)
     result = CreateNewDailyBasic.call(url_request)
     if result.success?
-      print "hihihi"
       flash[:notice] = 'Basic daily successfully added'
     else
       flash[:error] = result.value.message
