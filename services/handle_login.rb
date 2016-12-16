@@ -7,7 +7,8 @@ class LogIn
   def self.call(userEmail)
     Dry.Transaction(container: self) do
       step :go_login
-      step :validate_exist
+      step :validate_account_exist
+      step :get_all_exist_projects
     end.call(userEmail)
   end
 
@@ -20,14 +21,25 @@ class LogIn
     end
   }
 
-  register :validate_exist, lambda { |http_result|
-  	puts "here I am~~~~~"
-  	data = http_result.body.to_s
+  register :validate_account_exist, lambda { |http_result|
+    puts "YOOOOOO"
+    # puts http_result.body.to_s
     if http_result.status == 200
-      puts "fuck you"
-      Right(result)
+      Right(http_result)
     else
+      puts "fuck you"
       Left(Error.new('The #{email} dosen\'t exist.'))
+    end
+  }
+
+  register :get_all_exist_projects, lambda { |results|
+  	begin
+  	  puts "here is results' body"
+  	  puts results.body
+  	  puts results.body.to_json
+  	  Right(ProjectsRepresenter.new(Projects.new).from_json(results.body))
+    rescue
+      Left(Error.new('wrong for passing value'))
     end
   }
 end
