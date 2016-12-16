@@ -24,7 +24,8 @@
 <div class="panel panel-default" style="margin-top: 20px;">
 <div class="container-fluid bg-3 text-center" style="margin: 10px;">  
   - unless @all_projects.nil?
-  - length = @all_projects.length 
+  - length = @all_projects.projects.length 
+  - puts length
   - total = 0
   - while total < length
     <div class="row">
@@ -40,7 +41,6 @@
           <img src="images/suitcase.jpg" class="img-responsive margin" style="position: relative; width:70%; left: 15%;" />
         </div>
       </div>
-    </div>
     - if total+1 < length
       <div class="col-sm-4">
         <p></p>
@@ -53,7 +53,6 @@
           <img src="images/suitcase.jpg" class="img-responsive margin" style="position: relative; width:70%; left: 15%;">
         </div>
       </div>
-    </div>
     - if total+2 < length
       <div class="col-sm-4">
         <p></p>
