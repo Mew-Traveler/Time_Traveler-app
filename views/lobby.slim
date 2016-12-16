@@ -22,67 +22,52 @@
 </div>
 
 <div class="panel panel-default" style="margin-top: 20px;">
-<div class="container-fluid bg-3 text-center" style="margin: 10px;">   
-  <div class="row">
-    <div class="col-sm-4">
-      <p></p>
-        <p> ProjectA </p>
+<div class="container-fluid bg-3 text-center" style="margin: 10px;">  
+  - unless @all_projects.nil?
+  - length = @all_projects.length 
+  - total = 0
+  - while total < length
+    <div class="row">
+    - if total < length
+      <div class="col-sm-4">
         <p></p>
-        <p></p>
-        <div class="row">
-        <p></p>
-        <p></p>
-        <img src="suitcase.png" class="img-responsive margin" style="position: relative; width:70%; left: 15%;">
+          <p> #{@all_projects.projects[total][:projectName]} </p>
+          <p></p>
+          <p></p>
+          <div class="row">
+          <p></p>
+          <p></p>
+          <img src="images/suitcase.jpg" class="img-responsive margin" style="position: relative; width:70%; left: 15%;" />
+        </div>
       </div>
     </div>
-    <div class="col-md-4">
-      <p></p>
-        <p> ProjectB </p>
+    - if total+1 < length
+      <div class="col-sm-4">
         <p></p>
-        <p></p>
-        <div class="row">
-        <p></p>
-        <p></p>
-        <img src="suitcase.png" class="img-responsive margin" style="position: relative; width:70%; left: 15%;">
+          <p> #{@all_projects.projects[total+1][:projectName]} </p>
+          <p></p>
+          <p></p>
+          <div class="row">
+          <p></p>
+          <p></p>
+          <img src="images/suitcase.jpg" class="img-responsive margin" style="position: relative; width:70%; left: 15%;">
+        </div>
       </div>
     </div>
-    <div class="col-md-4">
-      <p></p>
-        <p> ProjectC </p>
+    - if total+2 < length
+      <div class="col-sm-4">
         <p></p>
-        <p></p>
-        <div class="row">
-        <p></p>
-        <p></p>
-        <img src="suitcase.png" class="img-responsive margin" style="position: relative; width:70%; left: 15%;">
+          - puts @all_projects[total]
+          <p> #{@all_projects.projects[total+2][:projectName]} </p>
+          <p></p>
+          <p></p>
+          <div class="row">
+          <p></p>
+          <p></p>
+          <img src="images/suitcase.jpg" class="img-responsive margin" style="position: relative; width:70%; left: 15%;">
+        </div>
       </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-md-4">
-      <p></p>
-        <p> ProjecD </p>
-        <p></p>
-        <p></p>
-        <div class="row">
-        <p></p>
-        <p></p>
-        <img src="suitcase.png" class="img-responsive margin" style="position: relative; width:70%; left: 15%;">
-      </div>
-    </div>
-    <div class="col-md-4">
-      <p></p>
-        <p> ProjectE </p>
-        <p></p>
-        <p></p>
-        <div class="row">
-        <p></p>
-        <p></p>
-        <img src="suitcase.png" class="img-responsive margin" style="position: relative; width:70%; left: 15%;">
-      </div>
-    </div>
-    <div class="col-md-4">
-    </div>
-  </div>
+    - total += 3
 </div>
 </div>

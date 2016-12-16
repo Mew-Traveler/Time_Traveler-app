@@ -7,8 +7,7 @@ class TimeTravelerApp < Sinatra::Base
   	userEmail = params[:userEmail]
   	result = LogIn.call(userEmail)
   	if result.success?
-      puts "hahahaahahahahaha"
-      puts result.value
+      @all_projects = result.value
   	else
       puts result.success?
       flash[:error] = result.value.message
