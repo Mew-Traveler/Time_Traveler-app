@@ -9,10 +9,11 @@ class TimeTravelerApp < Sinatra::Base
 
     # url_request = CreateNewRoom.call()
     result = RentInfoClass.call(params[:live_location])
+    @timediff = params[:timedif].to_i
+    @nthday = params[:nthday]
+    @ids = params[:ids]
+    puts "rlihwlirhglihlrihglwkhlrkhlwrkhglwirhlwi"
 
-        # result = TimeTraveler.call(body_params['city'])
-    # result = TimeTraveler.call
-    print result
     if result.success?
       @data = result.value
       print @data
@@ -25,7 +26,11 @@ class TimeTravelerApp < Sinatra::Base
   end
 
   post "/daily/basic/?" do
-    url_request = UrlRequest.call(params)
+    print "=========daily/basic========"
+    # puts request.body.read
+    url_request = request.body.read
+    # puts JSON.parse(request.body)
+    # url_request = UrlRequest.call(url_request)
     result = CreateNewDailyBasic.call(url_request)
     if result.success?
       print "hihihi"

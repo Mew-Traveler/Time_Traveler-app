@@ -4,66 +4,99 @@ div class="well" style="width: 100%;"
 
 div class="well" style="width: 100%;"
   -(0..@timediff).to_a.each do |i|
-    button.btn.btn-default type="submit" style="position: relative;
-      border-radius: 5px;
-      margin: 5px;
-      cursor: pointer;" DAY #{i+1}
+    a href="/myprojects/#{@ids}/#{i+1}?" class="button" DAY #{i+1}
+  
 
 div class = "panel panel-default" style="width: 100% hight: 100%"
 
-  div class = "panel panel-default" style="width: 50%; position: relative; float: left; margin: 10px;"
-    form role="form" class = "row" action="/daily/basic" method='post' style="width: 100%; position: relative;"
+  div class = "panel panel-default" style="width: 100%; position: relative; float: left; margin: 10px;"
+    form role="form" class = "row" action="/rent" method='get' style="width: 100%; position: relative;"
       .form-group
-      div class = "row" style = "margin: 5px"
-        label class = "col-md-4" style="text-align: center; font-family: Sans-serif; font-size: 25px;" Origin
-        input {type="text" class = "col-md-8" name='origin' placeholder="Origin for each day"
-          style="height: 40px; font-size: 18px;"}
+        div class = "row" style = "margin: 5px"
+          / form role="form" class = "row" action="/rent" method='get' style="width: 100%; position: relative;"
+          /   .form-group
+            //label class = "col-md-2" style="text-align: center; font-family: Sans-serif; font-size: 25px;" City
+          label class = "col-md-2" style="text-align: center; font-family: Sans-serif; font-size: 25px;" Origin
+          input{type="text" class = "col-md-4" name='origin' id='oribnb' placeholder="Today, start from..."
+             style="height: 40px; font-size: 18px;"}
+          input{type="text" class = "col-md-4" name='origin' id='bnbid' placeholder="Today, start from..."
+             style="height: 40px; font-size: 18px;"}
+             /readonly
+          / div class = "col-md-2"
+          / button.btn.btn-sm.btn-primary.btn-create id="FindHotelBtnOri" data-toggle="modal" data-target="#showAllHotelModal" FIND
+
+        / label class = "col-md-4" style="text-align: center; font-family: Sans-serif; font-size: 25px;" Origin
+        / input {type="text" class = "col-md-8" name='origin' placeholder="Origin for each day"
+        /   style="height: 40px; font-size: 18px;"}
 
       div class = "row" style = "margin: 5px"
-        label class = "col-md-4" style="text-align: center; font-family: Sans-serif; font-size: 25px;" Destination
-        input{type="text" class = "col-md-8" name='destination' placeholder="Destination for each day"
-          style="height: 40px; font-size: 18px;"}
+        form role="form" class = "row" action="/rent" method='get' style="width: 100%; position: relative;"
+          .form-group
+          label class = "col-md-2" style="text-align: center; font-family: Sans-serif; font-size: 25px;" Destination
+          input{type="text" class = "col-md-4" name='live_location' id='destbnb' placeholder="Which city will you live"
+             style="height: 40px; font-size: 18px;"}
+          input{type="hidden" class = "col-md-4" name='timedif' value="#{@timediff}" placeholder="Which city will you live"
+             style="height: 40px; font-size: 18px;"}
+          input{type="hidden" class = "col-md-4" name='projectid' id='ids' value="#{@ids}" placeholder="Which city will you live"
+             style="height: 40px; font-size: 18px;"}
+          input{type="hidden" class = "col-md-4" name='nthday' id='nthday' value="#{@nthday}" placeholder="Which city will you live"
+              style="height: 40px; font-size: 18px;"}
+          div class = "col-md-2"
+          button.btn.btn-default class = "col-md-2" type="submit" style="position: relative; top: 0;
+            border-radius: 5px;
+            cursor: pointer;" FIND
+
+
+        / input{type="text" class = "col-md-8" name='destination' placeholder="Destination for each day"
+        /   style="height: 40px; font-size: 18px;"}
 
       div class = "row" style = "margin: 5px"
-        label class = "col-md-4" style="text-align: center; font-family: Sans-serif; font-size: 25px;" Start Time
-        input{type="text" class = "col-md-8" name='start' placeholder="Start time for each day"
-          style="height: 40px; font-size: 18px;"}
+        label class = "col-md-2" style="text-align: center; font-family: Sans-serif; font-size: 25px;" Start Time 
+        #datepickerstarttiming.input-group.date
+          input#starttiming.form-control type="text" name='starttiming' /
+          span.input-group-addon
+            span.glyphicon.glyphicon-calendar
+        / input{type="text" class = "col-md-8" name='start' placeholder="Start time for each day"
+        /   style="height: 40px; font-size: 18px;"}
 
       div class = "row" style = "margin: 5px"
-        label class = "col-md-4" style="text-align: center; font-family: Sans-serif; font-size: 25px;" End Time
-        input{type="text" class = "col-md-8" name='end' placeholder="End time for each day"
-          style="height: 40px; font-size: 18px;"}
+        label class = "col-md-2" style="text-align: center; font-family: Sans-serif; font-size: 25px;" End Time
+        #datepickerendtiming.input-group.date
+          input#endtiming.form-control type="text" name='endtiming' /
+          span.input-group-addon
+            span.glyphicon.glyphicon-calendar
+        / input{type="text" class = "col-md-8" name='end' placeholder="End time for each day"
+        /   style="height: 40px; font-size: 18px;"}
 
       div class = "row" style = "margin: 5px"
         div class = "row" style = "margin: 5px;"
           div class = "col-md-5"
-          button.btn.btn-default class = "col-md-2" type="submit" style="position: relative; margin-left: auto; margin-right: auto;
+          button.btn.btn-default class = "col-md-2" type="button" id="savedaily" style="position: relative; margin-left: auto; margin-right: auto;
             height: 50px;
             border-radius: 5px;
             cursor: pointer;" SAVE
           div class = "col-md-5"
         
 
-  div class = "panel panel-default" style="width: 45%; position: relative; float: right; margin: 10px;"
-    form role="form" class = "row" action="/rent" method='get' style="width: 100%; position: relative;"
-      .form-group
-      label class = "col-md-2" style="text-align: center; font-family: Sans-serif; font-size: 25px;" City
-      input{type="text" class = "col-md-7" name='live_location' placeholder="Which city will you live"
-         style="height: 40px; font-size: 18px;"}
-      div class = "col-md-1"
-      button.btn.btn-default data-toggle="modal" data-target="#showAllHotelModal" class = "col-md-2" type="submit" style="position: relative; top: 0;
-        border-radius: 5px;
-        cursor: pointer;" FIND
-    / div class = "row" style = "margin: 5px;"
-/ - unless @timediff.nil?
-  / -(1..10).to_a.each do |i|
-    
-  / end
-  
-    
+  / div class = "panel panel-default" style="width: 45%; position: relative; float: right; margin: 10px;"
+  /   form role="form" class = "row" action="/rent" method='get' style="width: 100%; position: relative;"
+  /     .form-group
+  /     label class = "col-md-2" style="text-align: center; font-family: Sans-serif; font-size: 25px;" City
+  /     input{type="text" class = "col-md-7" name='live_location' placeholder="Which city will you live"
+  /        style="height: 40px; font-size: 18px;"}
+  /     div class = "col-md-1"
+  /     button.btn.btn-default data-toggle="modal" data-target="#showAllHotelModal" class = "col-md-2" type="submit" style="position: relative; top: 0;
+  /       border-radius: 5px;
+  /       cursor: pointer;" FIND
+  /   
 - unless @data.nil?
+  div class="well" style="width: 100%;text-align: center"
+    p "Choose the favorite bnb :>"
   - @data&.results&.each do |rent|
     div class = "panel panel-default" style="width: 45%; position: relative; float: left; margin: 10px;"
-      p #{rent[:name]}
+      a href="#" class="aaf" data-id="#{rent[:id]}" text="#{rent[:name]}">#{rent[:name]}
+
+      / a href="/myprojects/1" #{rent[:name]}
+
 
 / include :project_rent_partial
