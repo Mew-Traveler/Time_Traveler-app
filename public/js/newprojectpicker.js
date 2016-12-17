@@ -54,13 +54,15 @@ function DailySaved(){
         locateEnd:$('#destbnb').val(),
   		}),
   		success: function(data){
-  			console.log(data);
-  			alert('你成功建立新群組『'+newTitle+'』');
+        alert('你成功建立新群組『'+$('#ids').val()+'』');
+
+  			console.log($('#nthday').val());
+        window.location.href = "/buildshedule/"+$('#ids').val()+$('#nthday').val();
 
   		},
   		error:function (jqXHR, textStatus, errorThrown) {
 
-            console.log(jqXHR.state());
+            console.log(jqXHR);
         }
   	});
   })

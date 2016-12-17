@@ -45,7 +45,7 @@ class TimeTravelerApp < Sinatra::Base
     puts "jojlilwikhglihglwkrhl"
 
     @ids = params[:projectId]
-
+    puts @ids
     @nthday = params[:day]
     puts @nthday
     if result.success?

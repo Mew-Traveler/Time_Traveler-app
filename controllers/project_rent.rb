@@ -9,9 +9,10 @@ class TimeTravelerApp < Sinatra::Base
 
     # url_request = CreateNewRoom.call()
     result = RentInfoClass.call(params[:live_location])
+    puts params
     @timediff = params[:timedif].to_i
     @nthday = params[:nthday]
-    @ids = params[:ids]
+    @ids = params[:projectid]
     puts "rlihwlirhglihlrihglwkhlrkhlwrkhglwirhlwi"
 
     if result.success?
@@ -27,18 +28,25 @@ class TimeTravelerApp < Sinatra::Base
 
   post "/daily/basic/?" do
     print "=========daily/basic========"
-    # puts request.body.read
     url_request = request.body.read
-    # puts JSON.parse(request.body)
-    # url_request = UrlRequest.call(url_request)
     result = CreateNewDailyBasic.call(url_request)
+
     if result.success?
       print "hihihi"
       flash[:notice] = 'Basic daily successfully added'
+      content_type 'application/json'
+      result.value.body
     else
       flash[:error] = result.value.message
     end
-    redirect '/'
+    # redirect "/teseeet/?"
+
+  end
+
+  get "/buildshedule/:proId/Nday?" do
+    puts "----teseeet----"
+    puts params
+    slim :scharrange
   end
 
   post '/location/?' do
