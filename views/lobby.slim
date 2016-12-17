@@ -81,19 +81,21 @@
         <h4 class="modal-title">New Travel Project</h4>
       </div>
       <div class="modal-body">
-        <div class="form-group">
-          <label for="projectName">Project Name:</label>
-          <input type="text" class="form-control" name="projectName" id="projectName">
-          <label for="dateStart">DateStart:</label>
-          <input type="text" class="form-control" name="dateStart" id="dateStart>
-          <label for="dateEnd">DateEnd:</label>
-          <input type="text" class="form-control" name="dateEnd" id="dateEnd">
+        <form role="form" action="/create/newProject" method='post'>
+          <div class="form-group">
+            <label for="projectName">Project Name:</label>
+            <input type="text" class="form-control" name="projectName" id="projectName">
+            <label for="dateStart">DateStart:</label>
+            <input type="text" class="form-control" name="dateStart" id="dateStart">
+            <label for="dateEnd">DateEnd:</label>
+            <input type="text" class="form-control" name="dateEnd" id="dateEnd">
+          </div>
+             <p>Please fill the box above then click Next button.</p>
+        <div class="modal-footer">
+          <button class="btn btn-primary" type="submit">Next</button>
+        </form>
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
         </div>
-        <p>Please fill the box above then click create button.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal">Create</button>
-        <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
       </div>
     </div>
 

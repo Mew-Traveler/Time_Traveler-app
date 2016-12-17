@@ -16,8 +16,4 @@ class TimeTravelerApp < Sinatra::Base
 
   	slim :lobby
   end
-
-  post "/create/?" do
-    mail = params[:email]
-  end
 end
