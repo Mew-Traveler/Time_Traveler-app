@@ -43,7 +43,7 @@ class TimeTravelerApp < Sinatra::Base
 
   end
 
-  get "/buildshedule/:proId/Nday?" do
+  get "/buildshedule/:proId/:Nday?" do
     puts "----teseeet----"
     puts params
     slim :scharrange

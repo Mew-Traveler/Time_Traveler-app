@@ -57,7 +57,7 @@ function DailySaved(){
         alert('你成功建立新群組『'+$('#ids').val()+'』');
 
   			console.log($('#nthday').val());
-        window.location.href = "/buildshedule/"+$('#ids').val()+$('#nthday').val();
+        window.location.href = "/buildshedule/"+$('#ids').val()+"/"+$('#nthday').val();
 
   		},
   		error:function (jqXHR, textStatus, errorThrown) {
