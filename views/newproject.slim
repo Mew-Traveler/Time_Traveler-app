@@ -1,0 +1,38 @@
+form role="form" class="row" action="/projectInfo/?" method='post' style="width: 100%; position: relative;"
+  div id="newProject" class="modal fade" role="dialog"
+    div class="modal-dialog"
+      div class="modal-content"
+        div class="modal-header"
+          div class="row" style="margin: 5px"
+            label style="text-align: center; font-size: 25px;" Project Name
+            input{
+              type="text"
+              name="projectname"
+              placeholder="Project Name"
+              style="margin: 37px; height: 40px; font-size: 18px;"
+            }
+            input name="user" type="hidden" value="#{@user}" /
+            br/
+            .col-sm-4
+              label style="text-align: center; font-size: 25px;" FROM
+            .col-sm-8
+              .form-group
+                #datetimepickerFrom.input-group.date
+                  input#fromdate.form-control type="text" name='fromdate'/
+                  span.input-group-addon
+                    span.glyphicon.glyphicon-calendar
+            br/
+            .col-sm-4
+              label style="text-align: center; font-size: 25px;" TO
+            .col-sm-8
+              .form-group
+                #datetimepickerTo.input-group.date
+                  input#todate.form-control type="text" name='todate' /
+                  span.input-group-addon
+                    span.glyphicon.glyphicon-calendar
+
+            br/
+            button.btn.btn-default class="pull-right" data-toggle="modal" data-target="#newProject" style="position: relative; margin-left: auto; margin-right: auto;
+              height: 50px;
+              border-radius: 5px;
+              cursor: pointer;" NEXT

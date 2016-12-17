@@ -1,23 +1,19 @@
-body style="background-color:lightgray;"
-  br/
-  br/
-  br/
-  br/
-  br/
-  <p class="text-center"
-  b
-    font color="008800" size="20"Welcome TimeTraveler.
-form role="form" class = "row" action="/user/?" method='post' style="width: 100%; position: relative;"
-  .form-bottom
-    .form-group
-      label.sr-only for="form-Email"  Email
-      input#form-Email.form-control name="formEmail" placeholder="Email" type="text" /
-    <p class="btn pull-right"
-button.btn.btn-success class="pull-right" type="submit"  Login
+/! Header
+.intro-header
+  .container
+    .row
+      .col-lg-12
+        .intro-message
+          h1 Welcome TimeTraveler
+          form role="form" class = "row" action="/user/?" method='post' style="width: 100%; position: relative; left: 14%;"
+            .form-bottom
+              .input-group.col-xs-9
+                input#form-Email.form-control name="formEmail" placeholder="Email" type="text" /
+                .input-group-btn
+                  button.btn.btn-success class="pull-right" type="submit"  Login
+    /! /.intro-header
 
-br/
-br/
-br/
-br/
-<p class="text-center"
-  font color="black" copyright@SOA2016
+/! Footer
+.container
+ .col-lg-12
+   span.copyright.text-muted.small Copyright © SOA 2016. All Rights Reserved

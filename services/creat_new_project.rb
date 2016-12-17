@@ -4,6 +4,9 @@
 class CreateNewProjectInfo
   extend Dry::Monads::Either::Mixin
   extend Dry::Container::Mixin
+  require 'time'
+  require 'date'
+
 
   def self.call(url_request)
     Dry.Transaction(container: self) do
@@ -34,6 +37,8 @@ class CreateNewProjectInfo
       Right(HTTP.post("#{TimeTravelerApp.config.Time_Traveler_API}/myproject",
                       json: { projectName: params[:projectname], userEmail: params[:user], dateEnd: params[:todate],
                        dateStart: params[:fromdate] }))
+
+
     rescue
       puts "Something Error in loading project"
       Left(Error.new('Something Error in loading project '))
