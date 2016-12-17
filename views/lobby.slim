@@ -12,7 +12,7 @@
     <div class="col-sm-8">
     </div>
     <div class="col-sm-1">
-      <button type="button" class="btn btn-primary">Create</button>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createProjectModal">Create</button>
     </div>
     <div class="col-sm-1">
       <button type="button" class="btn btn-primary">Logout</button>
@@ -69,4 +69,33 @@
     </div>
     - total += 3
 </div>
+</div>
+
+<div id="createProjectModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">New Travel Project</h4>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="projectName">Project Name:</label>
+          <input type="text" class="form-control" name="projectName" id="projectName">
+          <label for="dateStart">DateStart:</label>
+          <input type="text" class="form-control" name="dateStart" id="dateStart>
+          <label for="dateEnd">DateEnd:</label>
+          <input type="text" class="form-control" name="dateEnd" id="dateEnd">
+        </div>
+        <p>Please fill the box above then click create button.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Create</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+
+  </div>
 </div>
