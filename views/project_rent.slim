@@ -3,11 +3,11 @@ div class="well" style="width: 100%;"
   a.hover Add hotel & some basic information for each day!
 
 div class="well" style="width: 100%;"
-  /for i in 0..@data&.project_day
+  -(0..@timediff).to_a.each do |i|
     button.btn.btn-default type="submit" style="position: relative;
       border-radius: 5px;
       margin: 5px;
-      cursor: pointer;" DAY
+      cursor: pointer;" DAY #{i+1}
 
 div class = "panel panel-default" style="width: 100% hight: 100%"
 
@@ -42,6 +42,7 @@ div class = "panel panel-default" style="width: 100% hight: 100%"
             border-radius: 5px;
             cursor: pointer;" SAVE
           div class = "col-md-5"
+        
 
   div class = "panel panel-default" style="width: 45%; position: relative; float: right; margin: 10px;"
     form role="form" class = "row" action="/rent" method='get' style="width: 100%; position: relative;"
@@ -53,11 +54,16 @@ div class = "panel panel-default" style="width: 100% hight: 100%"
       button.btn.btn-default data-toggle="modal" data-target="#showAllHotelModal" class = "col-md-2" type="submit" style="position: relative; top: 0;
         border-radius: 5px;
         cursor: pointer;" FIND
-    div class = "row" style = "margin: 5px;"
-
+    / div class = "row" style = "margin: 5px;"
+/ - unless @timediff.nil?
+  / -(1..10).to_a.each do |i|
+    
+  / end
+  
+    
 - unless @data.nil?
   - @data&.results&.each do |rent|
     div class = "panel panel-default" style="width: 45%; position: relative; float: left; margin: 10px;"
       p #{rent[:name]}
 
-include :project_rent_partial
+/ include :project_rent_partial
