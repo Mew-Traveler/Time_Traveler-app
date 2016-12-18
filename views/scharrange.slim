@@ -4,24 +4,24 @@
       a href="/" style="color: inherit; text-decoration: inherit;" TimeTraveler
     h3 Finish Your Itinerary :)
 
-/ .row
-/   .col-sm-6.col-sm-offset-3
-/     .panel.panel-default.panel-table
-/       .panel-heading
-/         .row
-/           .col.col-xs-2
-/             h3.panel-title Projects
-/           .col.col-xs-10.text-right
-/             button.btn.btn-sm.btn-primary.btn-create id="newProjectBtn" data-toggle="modal" data-target="#newProject" Create New
-/       .panel-body
-/         table.table.table-striped.table-bordered.table-list
-/           thead
-/             tr
-/               th Project Name
+.row
+  .col-sm-6.col-sm-offset-3
+    .panel.panel-default.panel-table
+      .panel-heading
+        .row
+          .col.col-xs-2
+            h3.panel-title Projects
+          .col.col-xs-10.text-right
+            button.btn.btn-sm.btn-primary.btn-create id="newProjectBtn" data-toggle="modal" data-target="#newAtrac" Create New
+      .panel-body
+        table.table.table-striped.table-bordered.table-list
+          thead
+            tr
+              th Project Name
 /           / tbody
 /             / - @projectinfo&.each do |project|
 /             /   tr
 /             /     td
 /                   / a href="/myprojects/#{project[:id]}/1" #{project[:name]}
 / 
-/ include :newproject
+include :newatracciones

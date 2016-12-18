@@ -2,9 +2,6 @@
 
 # TimeTraveler web service
 class TimeTravelerApp < Sinatra::Base
-  # get "/?" do
-  #   slim :project_rent
-  # end
   get "/rent/?" do
 
     # url_request = CreateNewRoom.call()
@@ -13,7 +10,6 @@ class TimeTravelerApp < Sinatra::Base
     @timediff = params[:timedif].to_i
     @nthday = params[:nthday]
     @ids = params[:projectid]
-    puts "rlihwlirhglihlrihglwkhlrkhlwrkhglwirhlwi"
 
     if result.success?
       @data = result.value

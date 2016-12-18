@@ -19,6 +19,7 @@ $(function () {
           });
           BnbChosen();
           DailySaved();
+          getPlanifica();
   });
 
 function BnbChosen(){
@@ -65,5 +66,59 @@ function DailySaved(){
             console.log(jqXHR);
         }
   	});
-  })
+  });
+}
+function getPlanifica(){
+  $('#findatraxbtn').on("click",function(){
+    console.log("s dto get friends");
+
+    $.ajax({
+      	url:"/planificac/find/"+$("#findatrac").val()+"?type="+"Fun",
+      	dataType: 'json',
+      	type: 'GET',
+      	success: function(data){
+          console.log("s to get friends");
+
+  			},
+  			// callback();
+      	error: function(){
+      		console.log("failed to get friends");
+      	}
+      });
+  });
+  $('#findparkbtn').on("click",function(){
+    console.log("s findparkbtn get friends");
+
+    $.ajax({
+
+      	url:"/planificac/find/"+$("#findatrac").val()+"?type="+"Park",
+      	dataType: 'json',
+      	type: 'GET',
+      	success: function(data){
+          console.log("s to get findparkbtn");
+      	},
+      	error: function(){
+      		console.log("failed to get friends");
+      	}
+      });
+  });
+
+  $('#findResturantbtn').on("click",function(){
+    console.log("s findResturantbtn get friends");
+
+    $.ajax({
+      	url:"/planificac/find/"+$("#findatrac").val()+"?type="+"Restaurant",
+      	dataType: 'json',
+      	type: 'GET',
+      	success: function(data){
+          console.log("s to get findResturantbtn");
+
+  			},
+  			// callback();
+
+      	error: function(){
+      		console.log("failed to get friends");
+      	}
+      });
+  });
 }
