@@ -7,7 +7,7 @@
   </div>
   <div class="row">
     <div class="col-sm-2">
-      <div class="panel-body" style="font-size: 20px;">Hi, @account!</div>
+      <div class="panel-body" style="font-size: 20px;">Hi, #{@user}!</div>
     </div>
     <div class="col-sm-8">
     </div>
@@ -89,6 +89,7 @@
             <input type="text" class="form-control" name="dateStart" id="dateStart">
             <label for="dateEnd">DateEnd:</label>
             <input type="text" class="form-control" name="dateEnd" id="dateEnd">
+            <input type="hidden" class="form-control" name="userEmail" id="userEmail" value="#{@user}">
           </div>
              <p>Please fill the box above then click Next button.</p>
         <div class="modal-footer">
