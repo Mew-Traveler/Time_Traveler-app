@@ -111,13 +111,13 @@ function getPlanifica(){
       	dataType: 'json',
       	type: 'GET',
       	success: function(data){
-          console.log("s to get findResturantbtn");
+          console.log("s to get findResturantbtn\n"+JSON.stringify(data["results_atrac"]));
 
   			},
   			// callback();
 
-      	error: function(){
-      		console.log("failed to get friends");
+      	error: function(data){
+      		console.log("failed to get friends"+data);
       	}
       });
   });

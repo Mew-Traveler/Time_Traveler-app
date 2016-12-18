@@ -9,14 +9,19 @@ class TimeTravelerApp < Sinatra::Base
     puts url.split("?")[1]
     result = LoadGoogleResults.call(params[:query],params[:type])
     if result.success?
-      @googldres = result.value
-      # print @googldres["name"]
       flash[:notice] = 'Here is the information'
+
+      content_type 'application/json'
+      puts result.value
+      result.value
+      # @googldres = result.value
+      # puts @googldres
+      # print @googldres["name"]
 
     else
       flash[:error] = result.value.message
     end
-    slim :newatracciones
+    # slim :newatracciones
     # puts params
     # @timediff = params[:timedif].to_i
     # @nthday = params[:nthday]
