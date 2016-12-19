@@ -3,6 +3,7 @@ class TimeTravelerApp < Sinatra::Base
   get "/goto/project/?" do
     puts "here i amamamamamamamama"
     puts params
+
   	# userEmail = params[:userEmail]
   	# result = LogIn.call(userEmail)
   	# if result.success?

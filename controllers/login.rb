@@ -17,4 +17,8 @@ class TimeTravelerApp < Sinatra::Base
 
   	slim :lobby
   end
+
+  post "/newUser/?" do
+    puts "goSpur"
+  end
 end
