@@ -5,8 +5,9 @@ class TimeTravelerApp < Sinatra::Base
     result = CreateProject.call(create_request)
 
     if result.success?
+      @projectInfo = params
+      @project = result.value
       # flash[:notice] = 'Group successfully added'
-      slim :project_rent
     else
       flash[:error] = result.value.message
     end
