@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-CreateRequest = Dry::Validation.Form do
+CreateProjectRequest = Dry::Validation.Form do
   required(:userEmail).filled
   required(:projectName).filled
   required(:dateStart).filled

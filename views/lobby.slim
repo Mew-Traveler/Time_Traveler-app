@@ -25,53 +25,53 @@
 
 <div class="panel panel-default" style="margin-top: 20px;">
 <div class="container-fluid bg-3 text-center" style="margin: 10px;">  
-  - unless @all_projects.nil?
-  - length = @all_projects.projects.length 
-  - puts length
-  - total = 0
-  - while total < length
-    <div class="row">
-    <form role="form" action="/goto/project" method='get'>
-      <input type="hidden" class="form-control" name="userEmail" id="userEmail" value="#{@user}">
-    - if total < length
-      <div class="col-sm-4">
-        <p></p>
-          <button type="submit" class="btn btn-success" name="projectName" value="#{@all_projects.projects[total][:projectName]}">#{@all_projects.projects[total][:projectName]}</button>
+  - unless @all_projects&.nil?
+    - length = @all_projects.projects.length 
+    - puts length
+    - total = 0
+    - while total < length
+      <div class="row">
+      <form role="form" action="/goto/project" method='get'>
+        <input type="hidden" class="form-control" name="userEmail" id="userEmail" value="#{@user}">
+      - if total < length
+        <div class="col-sm-4">
           <p></p>
+            <button type="submit" class="btn btn-success" name="projectName" value="#{@all_projects.projects[total][:projectName]}">#{@all_projects.projects[total][:projectName]}</button>
+            <p></p>
+            <p></p>
+            <div class="row">
+            <p></p>
+            <p></p>
+            <img src="images/suitcase.jpg" class="img-responsive margin" style="position: relative; width:70%; left: 15%;" />
+          </div>
+        </div>
+      - if total+1 < length
+        <div class="col-sm-4">
           <p></p>
-          <div class="row">
+            <button type="submit" class="btn btn-success" name="projectName" value="#{@all_projects.projects[total+1][:projectName]}">#{@all_projects.projects[total+1][:projectName]}</button>
+            <p></p>
+            <p></p>
+            <div class="row">
+            <p></p>
+            <p></p>
+            <img src="images/suitcase.jpg" class="img-responsive margin" style="position: relative; width:70%; left: 15%;">
+          </div>
+        </div>
+      - if total+2 < length
+        <div class="col-sm-4">
           <p></p>
-          <p></p>
-          <img src="images/suitcase.jpg" class="img-responsive margin" style="position: relative; width:70%; left: 15%;" />
+            <button type="submit" class="btn btn-success" name="projectName" value="#{@all_projects.projects[total+2][:projectName]}">#{@all_projects.projects[total+2][:projectName]}</button>
+            <p></p>
+            <p></p>
+            <div class="row">
+            <p></p>
+            <p></p>
+            <img src="images/suitcase.jpg" class="img-responsive margin" style="position: relative; width:70%; left: 15%;">
+          </div>
         </div>
       </div>
-    - if total+1 < length
-      <div class="col-sm-4">
-        <p></p>
-          <button type="submit" class="btn btn-success" name="projectName" value="#{@all_projects.projects[total+1][:projectName]}">#{@all_projects.projects[total+1][:projectName]}</button>
-          <p></p>
-          <p></p>
-          <div class="row">
-          <p></p>
-          <p></p>
-          <img src="images/suitcase.jpg" class="img-responsive margin" style="position: relative; width:70%; left: 15%;">
-        </div>
-      </div>
-    - if total+2 < length
-      <div class="col-sm-4">
-        <p></p>
-          <button type="submit" class="btn btn-success" name="projectName" value="#{@all_projects.projects[total+2][:projectName]}">#{@all_projects.projects[total+2][:projectName]}</button>
-          <p></p>
-          <p></p>
-          <div class="row">
-          <p></p>
-          <p></p>
-          <img src="images/suitcase.jpg" class="img-responsive margin" style="position: relative; width:70%; left: 15%;">
-        </div>
-      </div>
-    </div>
-    </form>
-    - total += 3
+      </form>
+      - total += 3
 </div>
 </div>
 
