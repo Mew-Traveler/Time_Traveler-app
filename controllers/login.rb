@@ -31,6 +31,6 @@ class TimeTravelerApp < Sinatra::Base
       redirect '/?'      
     end
 
-    slim :lobby
+    slim :login
   end
 end
