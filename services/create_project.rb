@@ -26,11 +26,11 @@ class CreateProject
   register :call_api_to_create_project, lambda { |create_request|
     http_result = HTTP.post("#{TimeTravelerApp.config.Time_Traveler_API}/project/create/",
                     json: { userEmail: create_request[:userEmail], projectName: create_request[:projectName], dateStart: create_request[:dateStart], dateEnd: create_request[:dateEnd]})
+    puts "here comes http_result"
+    puts http_result
     if http_result.status == 200
-      puts "ze hahahaha!!!!!!"
-      Right(http_result)
+       Right(ProjectsRepresenter.new(Projects.new).from_json(http_result.body))
     else
-      puts "fuck you"
       Left(Error.new('The create request failed.'))
     end
   }
