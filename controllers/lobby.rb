@@ -4,6 +4,10 @@ class TimeTravelerApp < Sinatra::Base
     puts "here i amamamamamamamama"
     puts params
 
+    @totalDays = params[:projectDays]
+    puts @totalDays
+    
+    slim :project_rent
   	# userEmail = params[:userEmail]
   	# result = LogIn.call(userEmail)
   	# if result.success?

@@ -9,4 +9,5 @@ class ProjectRepresenter < Roar::Decorator
   property :projectName
   property :dateStart
   property :dateEnd
+  property :day
 end

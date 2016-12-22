@@ -31,12 +31,14 @@
     - total = 0
     - while total < length
       <div class="row">
-      <form role="form" action="/goto/project" method='get'>
-        <input type="hidden" class="form-control" name="userEmail" id="userEmail" value="#{@user}">
       - if total < length
+        - puts @all_projects.projects[total][:day]
         <div class="col-sm-4">
           <p></p>
-            <button type="submit" class="btn btn-success" name="projectName" value="#{@all_projects.projects[total][:projectName]}">#{@all_projects.projects[total][:projectName]}</button>
+            <form role="form" action="/goto/project" method='get'>
+              <input type="hidden" class="form-control" name="projectDays" id="projectDays" value="#{@all_projects.projects[total][:day]}">
+              <button type="submit" class="btn btn-success" name="projectId" value="#{@all_projects.projects[total][:id]}">#{@all_projects.projects[total][:projectName]}</button>
+            </form>
             <p></p>
             <p></p>
             <div class="row">
@@ -46,9 +48,13 @@
           </div>
         </div>
       - if total+1 < length
+        - puts @all_projects.projects[total+1][:day]
         <div class="col-sm-4">
           <p></p>
-            <button type="submit" class="btn btn-success" name="projectName" value="#{@all_projects.projects[total+1][:projectName]}">#{@all_projects.projects[total+1][:projectName]}</button>
+            <form role="form" action="/goto/project" method='get'>
+              <input type="hidden" class="form-control" name="projectDays" id="projectDays" value="#{@all_projects.projects[total+1][:day]}">
+              <button type="submit" class="btn btn-success" name="projectId" value="#{@all_projects.projects[total+1][:id]}">#{@all_projects.projects[total+1][:projectName]}</button>
+            </form>
             <p></p>
             <p></p>
             <div class="row">
@@ -58,9 +64,13 @@
           </div>
         </div>
       - if total+2 < length
+        - puts @all_projects.projects[total+2][:day]
         <div class="col-sm-4">
           <p></p>
-            <button type="submit" class="btn btn-success" name="projectName" value="#{@all_projects.projects[total+2][:projectName]}">#{@all_projects.projects[total+2][:projectName]}</button>
+            <form role="form" action="/goto/project" method='get'>
+              <input type="hidden" class="form-control" name="projectDays" id="projectDays" value="#{@all_projects.projects[total+2][:day]}">
+              <button type="submit" class="btn btn-success" name="projectId" value="#{@all_projects.projects[total+2][:id]}">#{@all_projects.projects[total+2][:projectName]}</button>
+            </form>
             <p></p>
             <p></p>
             <div class="row">
@@ -70,7 +80,6 @@
           </div>
         </div>
       </div>
-      </form>
       - total += 3
 </div>
 </div>
