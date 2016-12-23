@@ -40,22 +40,22 @@ div class = "panel panel-default" style="width: 100% hight: 100%"
       .form-group
       div class = "row" style = "margin: 5px; margin-bottom: 15px;"
         label class = "col-md-4" style="text-align: center; font-family: Sans-serif; font-size: 25px;" Origin
-        input {type="text" class = "col-md-8" name='origin' placeholder="Origin for each day"
+        input {type="text" class = "col-md-8" name='origin' value="#{@dailyplan_info["locateStart"]}"
           style="height: 40px; font-size: 18px;"}
 
       div class = "row" style = "margin: 5px; margin-bottom: 15px;"
         label class = "col-md-4" style="text-align: center; font-family: Sans-serif; font-size: 25px;" Destination
-        input{type="text" class = "col-md-8" name='destination' placeholder="Destination for each day"
+        input{type="text" class = "col-md-8" name='destination' value="#{@dailyplan_info["locateEnd"]}"
           style="height: 40px; font-size: 18px;"}
 
       div class = "row" style = "margin: 5px; margin-bottom: 15px;"
         label class = "col-md-4" style="text-align: center; font-family: Sans-serif; font-size: 25px;" Start Time
-        input{type="text" class = "col-md-8" name='start' placeholder="Start time for each day"
+        input{type="text" class = "col-md-8" name='start' value="#{@dailyplan_info["timeStart"]}"
           style="height: 40px; font-size: 18px;"}
 
       div class = "row" style = "margin: 5px; margin-bottom: 15px;"
         label class = "col-md-4" style="text-align: center; font-family: Sans-serif; font-size: 25px;" End Time
-        input{type="text" class = "col-md-8" name='end' placeholder="End time for each day"
+        input{type="text" class = "col-md-8" name='end' value="#{@dailyplan_info["timeEnd"]}"
           style="height: 40px; font-size: 18px;"}
 
       div class = "row" style = "margin: 5px"
