@@ -111,8 +111,19 @@ function getPlanifica(){
       	dataType: 'json',
       	type: 'GET',
       	success: function(data){
-          console.log("s to get findResturantbtn\n"+JSON.stringify(data["results_atrac"]));
-
+          // console.log("s to get findResturantbtn\n"+JSON.stringify(data["results_atrac"]));
+          console.log("s to get findResturantbtn\n"+data['results_atrac'].length);
+          $.each(data["results_atrac"], function(index, element) {
+            // console.log("s to get ;...\n"+element);
+            // console.log("s to get ;...\n"+element.placename);
+            // console.log("s to get ;...\n"+element['placename']);
+            $('#atrcslists a').append(
+              '<a href=www.google.com>'+element.placename+'</a>'
+            );
+              // $('#atrcslists').append($('<div>', {
+              //     text: element.placename
+              // })); works
+          });
   			},
   			// callback();
 
