@@ -36,8 +36,11 @@
         <div class="col-sm-4">
           <p></p>
             <form role="form" action="/goto/project" method='get'>
+              <input type="hidden" class="form-control" name="userEmail" id="userEmail" value="#{@user}">
               <input type="hidden" class="form-control" name="projectDays" id="projectDays" value="#{@all_projects.projects[total][:day]}">
-              <button type="submit" class="btn btn-success" name="projectId" value="#{@all_projects.projects[total][:id]}">#{@all_projects.projects[total][:projectName]}</button>
+              <input type="hidden" class="form-control" name="projectName" id="projectName" value="#{@all_projects.projects[total][:projectName]}">
+              <input type="hidden" class="form-control" name="nthday" id="nthday" value="1">
+              <button type="submit" class="btn btn-success" name="project_id" value="#{@all_projects.projects[total][:id]}">#{@all_projects.projects[total][:projectName]}</button>
             </form>
             <p></p>
             <p></p>
@@ -52,8 +55,11 @@
         <div class="col-sm-4">
           <p></p>
             <form role="form" action="/goto/project" method='get'>
+              <input type="hidden" class="form-control" name="userEmail" id="userEmail" value="#{@user}">
               <input type="hidden" class="form-control" name="projectDays" id="projectDays" value="#{@all_projects.projects[total+1][:day]}">
-              <button type="submit" class="btn btn-success" name="projectId" value="#{@all_projects.projects[total+1][:id]}">#{@all_projects.projects[total+1][:projectName]}</button>
+              <input type="hidden" class="form-control" name="projectName" id="projectName" value="#{@all_projects.projects[total+1][:projectName]}">
+              <input type="hidden" class="form-control" name="nthday" id="nthday" value="1">
+              <button type="submit" class="btn btn-success" name="project_id" value="#{@all_projects.projects[total+1][:id]}">#{@all_projects.projects[total+1][:projectName]}</button>
             </form>
             <p></p>
             <p></p>
@@ -68,8 +74,11 @@
         <div class="col-sm-4">
           <p></p>
             <form role="form" action="/goto/project" method='get'>
+              <input type="hidden" class="form-control" name="userEmail" id="userEmail" value="#{@user}">
               <input type="hidden" class="form-control" name="projectDays" id="projectDays" value="#{@all_projects.projects[total+2][:day]}">
-              <button type="submit" class="btn btn-success" name="projectId" value="#{@all_projects.projects[total+2][:id]}">#{@all_projects.projects[total+2][:projectName]}</button>
+              <input type="hidden" class="form-control" name="projectName" id="projectName" value="#{@all_projects.projects[total+2][:projectName]}">
+              <input type="hidden" class="form-control" name="nthday" id="nthday" value="1">
+              <button type="submit" class="btn btn-success" name="project_id" value="#{@all_projects.projects[total+2][:id]}">#{@all_projects.projects[total+2][:projectName]}</button>
             </form>
             <p></p>
             <p></p>
