@@ -16,11 +16,8 @@ gem 'http'
 gem 'roar'
 gem 'multi_json'
 gem 'dry-monads'
-<<<<<<< HEAD
 gem 'dry-validation', '0.10.4'
-=======
 gem 'dry-validation','0.10.4'
->>>>>>> c6b0ff02ab2438b60284dcfa1981548e0b58545a
 gem 'dry-container'
 gem 'dry-transaction'
 
