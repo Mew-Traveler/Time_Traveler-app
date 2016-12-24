@@ -30,21 +30,26 @@
 <div class="panel panel-default" style="margin-top: 20px;">
   - unless @totalDays.nil?
   <div class="container">
-  <div class="row">
-  - for i in 1..@totalDays.to_i
-      <div class="col-sm-1">
-        <form role="form" action="/goto/project" method='get'>
-          <input type="hidden" class="form-control" name="userEmail" id="userEmail" value="#{@userEmail}">
-          <input type="hidden" class="form-control" name="projectDays" id="projectDays" value="#{@totalDays}">
-          <input type="hidden" class="form-control" name="projectName" id="projectName" value="#{@projectName}">
-          <input type="hidden" class="form-control" name="project_id" id="project_id" value="#{@project_id}">
-          - if i.to_s == @dailyplan_info["nthday"]
-              <button type="submit" class="btn btn-success disabled" style="margin: 5px" name="nthday" id="nthday" value="#{i.to_s}">Day#{i}</button>
-          - else
-              <button type="submit" class="btn btn-success" style="margin: 5px" name="nthday" id="nthday" value="#{i.to_s}">Day#{i}</button>
-        </form>
-      </div>
-  </div>
+  - total = 0
+  - howManyRow = @totalDays.to_i/12
+  - for j in 0..howManyRow
+    <div class="row">
+    - for i in 1..12
+      - if total < @totalDays.to_i
+          <div class="col-sm-1">
+            <form role="form" action="/goto/project" method='get'>
+              <input type="hidden" class="form-control" name="userEmail" id="userEmail" value="#{@userEmail}">
+              <input type="hidden" class="form-control" name="projectDays" id="projectDays" value="#{@totalDays}">
+              <input type="hidden" class="form-control" name="projectName" id="projectName" value="#{@projectName}">
+              <input type="hidden" class="form-control" name="project_id" id="project_id" value="#{@project_id}">
+              - if i.to_s == @dailyplan_info["nthday"]
+                  <button type="submit" class="btn btn-success disabled" style="margin-top: 5px; margin-bottom: 5px" name="nthday" id="nthday" value="#{(j*12+i).to_s}">Day#{(j*12+i)}</button>
+              - else
+                  <button type="submit" class="btn btn-success" style="margin-top: 5px; margin-bottom: 5px" name="nthday" id="nthday" value="#{(j*12+i).to_s}">Day#{j*12+i}</button>
+            </form>
+          </div>
+          - total+=1
+    </div>
   </div>
 </div>
 
