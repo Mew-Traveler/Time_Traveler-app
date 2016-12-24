@@ -13,8 +13,9 @@ class TimeTravelerApp < Sinatra::Base
     if result.success?
        dailyplan = result.value
        @dailyplan_info = dailyplan["dailyplan_info"]
-       # @house_info = dailyplan["house_info"]
+       @house_info = dailyplan["house_info"]
        puts @dailyplan_info
+       puts @house_info
     else
       puts "wrong params"
     end
