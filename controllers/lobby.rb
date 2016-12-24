@@ -1,24 +1,25 @@
 class TimeTravelerApp < Sinatra::Base
 
   get "/goto/project/?" do
-    puts "here i amamamamamamamama"
     puts params
-
-    @totalDays = params[:projectDays]
-    puts @totalDays
     
-    slim :project_rent
-  	# userEmail = params[:userEmail]
-  	# result = LogIn.call(userEmail)
-  	# if result.success?
-   #    @all_projects = result.value
-   #    @user = userEmail
-  	# else
-   #    puts result.success?
-   #    flash[:error] = result.value.message
-   #    redirect '/?'
-  	# end
+    @projectName = params[:projectName]
+    @totalDays = params[:projectDays]
+    @userEmail = params[:userEmail]
+    @nthday = params[:nthday]
+    @project_id = params[:project_id]
+    result = GetDailyplan.call(params)
+    
+    if result.success?
+       dailyplan = result.value
+       @dailyplan_info = dailyplan["dailyplan_info"]
+       @house_info = dailyplan["house_info"]
+       puts @dailyplan_info
+       puts @house_info
+    else
+      puts "wrong params"
+    end
 
-  	# slim :lobby
+    slim :project_rent
   end
 end

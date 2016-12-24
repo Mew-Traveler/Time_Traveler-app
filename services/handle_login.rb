@@ -36,7 +36,6 @@ class LogIn
   	begin
   	  puts "here is results' body"
   	  puts results.body
-  	  puts results.body.to_json
 
   	  Right(ProjectsRepresenter.new(Projects.new).from_json(results.body))
     rescue
