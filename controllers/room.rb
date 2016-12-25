@@ -4,17 +4,18 @@
 class TimeTravelerApp < Sinatra::Base
   # Home page: show list of all pages
   get '/room/?' do
-    puts "+++++++++++++++++++++++++"
+    puts "show_hotels get params:"
     puts params
-    puts "+++++++++++++++++++++++++"
     @userEmail = params['userEmail']
-    @projectDays = params['projectDays']
+    @totalDays = params['projectDays']
     @projectName = params['projectName']
     @project_id = params['project_id']
     @date = params['date']
     @nthday = params['nthday']
-    puts @userEmail
-    puts @projectDays
+    @origin = params['origin']
+    @destination = params['destination']
+    @start = params['start']
+    @end = params['end']
     location = params['location']
     result = GetAllRooms.call(location)
     if result.success?

@@ -13,12 +13,14 @@ class UpdateDailyplan
 
   register :post_new_dailyplan_to_api, lambda { |update_dailyplan_request|
     puts "before post"
+    puts "++++++++++++++++++++++++++++++"
     puts update_dailyplan_request["origin"]
     puts update_dailyplan_request["destination"]
     puts update_dailyplan_request["nthday"]
     puts update_dailyplan_request["start"]
     puts update_dailyplan_request["end"]
     puts update_dailyplan_request["roomId"]
+    puts "++++++++++++++++++++++++++++++"
     http_result = HTTP.post("#{TimeTravelerApp.config.Time_Traveler_API}/day/newroom/", 
       json: {
         dailyplanInfo: {

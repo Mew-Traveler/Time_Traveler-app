@@ -111,6 +111,11 @@ div class = "panel panel-default" style="width: 100% hight: 100%"
             input{type="text" class = "col-md-7" name='location' placeholder="Which city will you live"
                style="height: 40px; font-size: 18px;"}
             div class = "col-md-1"
+              <input type="hidden" class="form-control" name="origin" id="origin" value="#{@dailyplan_info["locateStart"]}">
+              <input type="hidden" class="form-control" name="destination" id="destination" value="#{@dailyplan_info["locateEnd"]}">
+              <input type="hidden" class="form-control" name="start" id="start" value="#{@dailyplan_info["timeStart"]}">
+              <input type="hidden" class="form-control" name="end" id="end" value="#{@dailyplan_info["timeEnd"]}">
+
               <input type="hidden" class="form-control" name="userEmail" id="userEmail" value="#{@userEmail}">
               <input type="hidden" class="form-control" name="projectDays" id="projectDays" value="#{@totalDays}">
               <input type="hidden" class="form-control" name="projectName" id="projectName" value="#{@projectName}">

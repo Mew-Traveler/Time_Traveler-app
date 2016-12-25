@@ -21,20 +21,39 @@
       div class = "col-sm-1" style = "font-size: 25px; font-weight: bold" Bed
       div class = "col-sm-1" style = "font-size: 25px; font-weight: bold" Rank
   - @data&.results&.each do |rent|
-    form role="form" class = "row" action="/goto/project" method='get' style="width: 100%; position: relative;"
-    <hr>
-    div class = "row" style = "margin: 10px"
-      div class = "col-sm-4"
-        p #{rent[:name]}
-      div class = "col-sm-4"
-        p #{rent[:address]}
-      div class = "col-sm-1"
-        p #{rent[:bed]}
-      div class = "col-sm-1"
-        p #{rent[:roomRank]}
-      div class = "col-sm-1"
-      div class = "col-sm-1"
-        <button type="submit" class="btn btn-primary" style="position: relative; top: 0; border-radius: 5px; cursor: pointer;">Choose</button>      
+    form role="form" class = "row" action="/update/dailyplan" method='post' style="width: 100%; position: relative;"
+      <input type="hidden" class="form-control" name="userEmail" id="userEmail" value="#{@userEmail}">
+      <input type="hidden" class="form-control" name="projectDays" id="projectDays" value="#{@totalDays}">
+      <input type="hidden" class="form-control" name="projectName" id="projectName" value="#{@projectName}">
+      <input type="hidden" class="form-control" name="project_id" id="project_id" value="#{@project_id}">
+      <input type="hidden" class="form-control" name="date" id="date" value="#{@date}">
+      <input type="hidden" class="form-control" name="nthday" id="nthday" value="#{@nthday}">
+      <input type="hidden" class="form-control" name="roomId" id="roomId" value="#{rent[:id]}">
+
+      <input type="hidden" class="form-control" name="origin" id="origin" value="#{@origin}">
+      <input type="hidden" class="form-control" name="destination" id="destination" value="#{@destination}">
+      <input type="hidden" class="form-control" name="start" id="start" value="#{@start}">
+      <input type="hidden" class="form-control" name="end" id="end" value="#{@end}">
+
+      <input type="hidden" class="form-control" name="roomName" id="roomName" value="#{rent[:name]}">
+      <input type="hidden" class="form-control" name="roomRank" id="roomRank" value="#{rent[:roomRank]}">
+      <input type="hidden" class="form-control" name="roomPrice" id="roomPrice" value="$---">
+      <input type="hidden" class="form-control" name="bed" id="bed" value="#{rent[:bed]}">
+      <input type="hidden" class="form-control" name="address" id="address" value="#{rent[:address]}">
+      <input type="hidden" class="form-control" name="airbnb_link" id="airbnb_link" value="#{rent[:airbnb_link]}">
+      <hr>
+      div class = "row" style = "margin: 10px"
+        div class = "col-sm-4"
+          p #{rent[:name]}
+        div class = "col-sm-4"
+          p #{rent[:address]}
+        div class = "col-sm-1"
+          p #{rent[:bed]}
+        div class = "col-sm-1"
+          p #{rent[:roomRank]}
+        div class = "col-sm-1"
+        div class = "col-sm-1"
+          <button type="submit" class="btn btn-primary" style="position: relative; top: 0; border-radius: 5px; cursor: pointer;">Choose</button>      
   </div>
 
 <div class = "container">
