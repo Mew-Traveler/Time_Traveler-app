@@ -44,7 +44,10 @@
       <hr>
       div class = "row" style = "margin: 10px"
         div class = "col-sm-4"
-          p #{rent[:name]}
+          div class = "row"
+            p #{rent[:name]}
+          div class = "row"
+            <a href = "#{rent[:airbnb_link]}"> Airbnb Link </a>
         div class = "col-sm-4"
           p #{rent[:address]}
         div class = "col-sm-1"
