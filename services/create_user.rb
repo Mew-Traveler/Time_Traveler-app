@@ -23,13 +23,11 @@ class CreateUser
   }
 
   register :call_api_to_create_user, lambda { |create_request|
-    http_result = HTTP.post("#{TimeTravelerApp.config.Time_Traveler_API}/createUser/",
+    result = HTTP.post("#{TimeTravelerApp.config.Time_Traveler_API}/createUser/",
                     json: { userEmail: create_request[:userEmail]})
-    if http_result.status == 200
-      puts "ze hahahaha!!!!!!"
-      Right(http_result)
+    if result.status == 200
+      Right(result)
     else
-      puts "NaNi??!"
       Left(Error.new('The mail must be used by others.'))
     end
   }

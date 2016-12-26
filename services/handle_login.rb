@@ -39,7 +39,7 @@ class LogIn
 
   	  Right(ProjectsRepresenter.new(Projects.new).from_json(results.body))
     rescue
-      Left(Error.new('wrong for passing value'))
+      Left(Error.new('wrong for passing value in get all exist projects'))
     end
   }
 end
