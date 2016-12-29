@@ -9,6 +9,7 @@ gem 'econfig'
 gem 'rake'
 gem 'slim'
 gem 'rack-flash3'
+gem 'concurrent-ruby', '~> 1.0'
 gem 'Time_Traveler', '0.1.72'
 
 gem 'http'

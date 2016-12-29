@@ -142,6 +142,7 @@ PLATFORMS
 
 DEPENDENCIES
   Time_Traveler (= 0.1.72)
+  concurrent-ruby (~> 1.0)
   dry-container
   dry-monads
   dry-transaction
