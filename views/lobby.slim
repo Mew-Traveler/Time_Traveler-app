@@ -47,7 +47,7 @@
             <div class="row">
             <p></p>
             <p></p>
-            <img src="images/suitcase.jpg" class="img-responsive margin" style="position: relative; width:70%; left: 15%;" />
+            <img src="/images/suitcase.jpg" class="img-responsive margin" style="position: relative; width:70%; left: 15%;" />
           </div>
         </div>
       - if total+1 < length
@@ -66,7 +66,7 @@
             <div class="row">
             <p></p>
             <p></p>
-            <img src="images/suitcase.jpg" class="img-responsive margin" style="position: relative; width:70%; left: 15%;">
+            <img src="/images/suitcase.jpg" class="img-responsive margin" style="position: relative; width:70%; left: 15%;">
           </div>
         </div>
       - if total+2 < length
@@ -85,7 +85,7 @@
             <div class="row">
             <p></p>
             <p></p>
-            <img src="images/suitcase.jpg" class="img-responsive margin" style="position: relative; width:70%; left: 15%;">
+            <img src="/images/suitcase.jpg" class="img-responsive margin" style="position: relative; width:70%; left: 15%;">
           </div>
         </div>
       </div>
@@ -108,9 +108,17 @@
             <label for="projectName">Project Name:</label>
             <input type="text" class="form-control" name="projectName" id="projectName">
             <label for="dateStart">DateStart:</label>
-            <input type="text" class="form-control" name="dateStart" id="dateStart">
+            / <input type="text" class="form-control" name="dateStart" id="dateStart">
+            #datetimepickerFrom.input-group.date
+              input#starttiming.form-control type="text" name='starttiming' /
+              span.input-group-addon
+                span.glyphicon.glyphicon-calendar
             <label for="dateEnd">DateEnd:</label>
-            <input type="text" class="form-control" name="dateEnd" id="dateEnd">
+            /<input type="text" class="form-control" name="dateEnd" id="dateEnd">
+            #datetimepickerTo.input-group.date
+              input#endtiming.form-control type="text" name='endtiming' /
+              span.input-group-addon
+                span.glyphicon.glyphicon-calendar
             <input type="hidden" class="form-control" name="userEmail" id="userEmail" value="#{@user}">
           </div>
              <p>Please fill the box above then click Next button.</p>

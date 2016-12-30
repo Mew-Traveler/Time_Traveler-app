@@ -6,5 +6,6 @@ class ErrorFlattener < Roar::Decorator
 
   def to_s
     @represented.errors.join('; ')
+    #error format: must be filled; must be filled 
   end
 end
