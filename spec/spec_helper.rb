@@ -12,6 +12,7 @@ require './init.rb'
 
 
 HOST = 'http://localhost:3000/'
+NEW_USER_EMAIL = 'specman@gmail.com'
 
 # Helper methods
 def homepage
