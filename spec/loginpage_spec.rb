@@ -46,9 +46,32 @@ describe 'Login Page' do
       @browser.text_field(id: 'userEmail1').set(NEW_USER_EMAIL)
       @browser.button(name: 'btn_login').click
 
-      
+      # Create a new project  
       Watir::Wait.until { @browser.button(name: 'btn_logout').visible? }
-      
+      Watir::Wait.until { @browser.button(name: 'btn_create').visible? }
+    
+      @browser.button(name: 'btn_create').click
+      Watir::Wait.until { @browser.input(name: 'projectName').visible? }
+      @browser.text_field(name: 'projectName').set(NEW_PROJECT_NAME)
+      @browser.text_field(name: 'dateStart').set(NEW_PROJECT_DATE_START)
+      @browser.text_field(name: 'dateEnd').set(NEW_PROJECT_DATE_END)
+      @browser.button(name: 'btn_next').click
+
+      # Enter the project and set dailyplan
+
+      Watir::Wait.until { @browser.button(name: 'btn_save').visible? }
+      Watir::Wait.until { @browser.button(name: 'btn_find').visible? }
+      @browser.text_field(name: 'location').set(DAY1_LOCATION)
+      @browser.button(name: 'btn_find').click
+
+      Watir::Wait.until { @browser.button(name: 'btn_choose0').visible? }
+      Watir::Wait.until { @browser.button(name: 'btn_choose6').visible? }
+      Watir::Wait.until { @browser.button(name: 'btn_choose12').visible? }
+      Watir::Wait.until { @browser.button(name: 'btn_choose19').visible? }
+      Watir::Wait.until { @browser.button(name: 'btn_back').visible? }
+
+
+
     end    
   end
 end
