@@ -23,6 +23,10 @@ DAY4_LOCATION = 'Hualien'
 DAY5_LOCATION = 'Taitung'
 DAY6_LOCATION = 'Pingtung'
 DAY7_LOCATION = 'Tainan'
+DAY1_ORIGIN = 'Taitung'
+DAY1_DESTINATION = 'Hsinchu'
+DAY1_START = '7:00'
+DAY1_END = '18:30'
 
 # Helper methods
 def homepage

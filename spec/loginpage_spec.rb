@@ -70,8 +70,36 @@ describe 'Login Page' do
       Watir::Wait.until { @browser.button(name: 'btn_choose19').visible? }
       Watir::Wait.until { @browser.button(name: 'btn_back').visible? }
 
+      @browser.button(name: 'btn_choose0').click
+      Watir::Wait.until { @browser.input(name: 'origin').visible? }
+      Watir::Wait.until { @browser.input(name: 'destination').visible? }
+      Watir::Wait.until { @browser.input(name: 'start').visible? }
+      Watir::Wait.until { @browser.input(name: 'end').visible? }
+      @browser.text_field(name: 'origin').set(DAY1_ORIGIN)
+      @browser.text_field(name: 'destination').set(DAY1_DESTINATION)
+      @browser.text_field(name: 'start').set(DAY1_START)
+      @browser.text_field(name: 'end').set(DAY1_END)
+      @browser.button(name: 'btn_save').click
 
+      @browser.button(name: 'btn_logout').click
 
-    end    
+      # Check if the dailyplan has been saved
+      @browser.button(name: 'HaveAccount').click
+      Watir::Wait.until { @browser.button(name: 'btn_login').visible? }
+      @browser.text_field(id: 'userEmail1').set(NEW_USER_EMAIL)
+      @browser.button(name: 'btn_login').click
+
+      Watir::Wait.until { @browser.button(name: 'project_id').visible? }
+      @browser.button(name: 'project_id').click
+
+      Watir::Wait.until { @browser.input(name: 'origin').visible? }
+      Watir::Wait.until { @browser.input(name: 'destination').visible? }
+      Watir::Wait.until { @browser.input(name: 'start').visible? }
+      Watir::Wait.until { @browser.input(name: 'end').visible? }
+      @browser.text_field(name: 'origin').value.must_include DAY1_ORIGIN
+      @browser.text_field(name: 'destination').value.must_include DAY1_DESTINATION
+      @browser.text_field(name: 'start').value.must_include DAY1_START
+      @browser.text_field(name: 'end').value.must_include DAY1_END
+    end
   end
 end
