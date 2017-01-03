@@ -19,7 +19,7 @@
     </div>
     <div class="col-sm-1">
       <form role="form" action="/" method='get'>
-        <button type="submit" class="btn btn-primary">Logout</button>
+        <button type="submit" class="btn btn-primary" name="btn_logout">Logout</button>
       </form>
     </div>
   </div>
@@ -96,15 +96,15 @@ div class = "panel panel-default" style="width: 100% hight: 100%"
                 <input type="hidden" class="form-control" name="address" id="address" value="#{@house_info["address"]}">
                 <input type="hidden" class="form-control" name="airbnb_link" id="airbnb_link" value="#{@house_info["airbnb_link"]}">
 
-              div class = "row" style = "margin: 5px"
-                div class = "row" style = "margin: 5px;"
-                  div class = "col-md-5"
-                  button.btn.btn-primary class = "col-md-2" type="submit" style="position: relative; margin-left: auto; margin-right: auto;
-                    height: 50px;
-                    border-radius: 5px;
-                    cursor: pointer;" SAVE
-                  div class = "col-md-5"
 
+            div class = "row" style = "margin: 5px"
+              div class = "row" style = "margin: 5px;"
+                div class = "col-md-5"
+                button.btn.btn-primary class = "col-md-2" name = "btn_save" type="submit" style="position: relative; margin-left: auto; margin-right: auto;
+                  height: 50px;
+                  border-radius: 5px;
+                  cursor: pointer;" SAVE
+                div class = "col-md-5"
         div class = "col-sm-6"
           div class = "container" style="width: 100%;"
             form role="form" class = "row" action="/room" method='get' style="width: 100%; position: relative;"
@@ -118,36 +118,36 @@ div class = "panel panel-default" style="width: 100% hight: 100%"
                 <input type="hidden" class="form-control" name="start" id="start" value="#{@dailyplan_info["timeStart"]}">
                 <input type="hidden" class="form-control" name="end" id="end" value="#{@dailyplan_info["timeEnd"]}">
 
-                <input type="hidden" class="form-control" name="userEmail" id="userEmail" value="#{@userEmail}">
-                <input type="hidden" class="form-control" name="projectDays" id="projectDays" value="#{@totalDays}">
-                <input type="hidden" class="form-control" name="projectName" id="projectName" value="#{@projectName}">
-                <input type="hidden" class="form-control" name="project_id" id="project_id" value="#{@project_id}">
-                <input type="hidden" class="form-control" name="date" id="date" value="#{@dailyplan_info["date"]}">
-                <input type="hidden" class="form-control" name="nthday" id="nthday" value="#{@dailyplan_info["nthday"]}">
-                <input type="hidden" class="form-control" name="roomId" id="roomId" value="#{@dailyplan_info["roomId"]}">
-                <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#showAllHotelModal"  style="position: relative; top: 0;
-                cursor: pointer;">FIND</button>
-            div class = "row" style = "margin: 5px;"
-            div class = "row" style = "margin: 5px;"
-              <hr style="margin: 5px">  
-            div class = "row" style = "margin: 5px;"
-              - if @house_info["roomName"] != "empty"
-                  <b style="font-size: 30px"> #{@house_info["roomName"]} </b>
-                  <hr>
-            div class = "row" style = "margin: 5px"
-              - if @house_info["roomName"] != "empty"
-                div class = "col-sm-4"
-                  <p> #{@house_info["roomRank"]} </p>
-                div class = "col-sm-4"
-                  <p> #{@house_info["roomPrice"]} </p>
-                div class = "col-sm-4"
-                  <p> #{@house_info["bed"]} </p>
-            div class = "row" style = "margin: 5px"
-              - if @house_info["roomName"] != "empty"
-                <p> #{@house_info["address"]} </p>
-            div class = "row" style = "margin: 5px"
-              - if @house_info["roomName"] != "empty"
-                <a href = "#{@house_info["airbnb_link"]}"> Airbnb Link </a>
+              <input type="hidden" class="form-control" name="userEmail" id="userEmail" value="#{@userEmail}">
+              <input type="hidden" class="form-control" name="projectDays" id="projectDays" value="#{@totalDays}">
+              <input type="hidden" class="form-control" name="projectName" id="projectName" value="#{@projectName}">
+              <input type="hidden" class="form-control" name="project_id" id="project_id" value="#{@project_id}">
+              <input type="hidden" class="form-control" name="date" id="date" value="#{@dailyplan_info["date"]}">
+              <input type="hidden" class="form-control" name="nthday" id="nthday" value="#{@dailyplan_info["nthday"]}">
+              <input type="hidden" class="form-control" name="roomId" id="roomId" value="#{@dailyplan_info["roomId"]}">
+              <button type="submit" class="btn btn-primary" name="btn_find" data-toggle="modal" data-target="#showAllHotelModal"  style="position: relative; top: 0;
+              cursor: pointer;">FIND</button>
+          div class = "row" style = "margin: 5px;"
+          div class = "row" style = "margin: 5px;"
+            <hr style="margin: 5px">  
+          div class = "row" style = "margin: 5px;"
+            - if @house_info["roomName"] != "empty"
+                <b style="font-size: 30px"> #{@house_info["roomName"]} </b>
+                <hr>
+          div class = "row" style = "margin: 5px"
+            - if @house_info["roomName"] != "empty"
+              div class = "col-sm-4"
+                <p> #{@house_info["roomRank"]} </p>
+              div class = "col-sm-4"
+                <p> #{@house_info["roomPrice"]} </p>
+              div class = "col-sm-4"
+                <p> #{@house_info["bed"]} </p>
+          div class = "row" style = "margin: 5px"
+            - if @house_info["roomName"] != "empty"
+              <p> #{@house_info["address"]} </p>
+          div class = "row" style = "margin: 5px"
+            - if @house_info["roomName"] != "empty"
+              <a href = "#{@house_info["airbnb_link"]}"> Airbnb Link </a>
 
 
 div class = "container"

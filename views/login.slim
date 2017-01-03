@@ -11,16 +11,16 @@
         </div>
       </div>
       <div class="row">
-        <button class="btn btn-success" data-toggle="collapse" data-target="#demo" style="margin: 5px;">HaveAccount</button>
-        <button class="btn btn-success" data-toggle="collapse" data-target="#demo2" style="margin: 5px;">New</button>
+        <button class="btn btn-success" data-toggle="collapse" data-target="#demo" style="margin: 5px;" name = "HaveAccount">HaveAccount</button>
+        <button class="btn btn-success" data-toggle="collapse" data-target="#demo2" style="margin: 5px;" name = "New">New</button>
         <div id="demo" class="collapse">
         <hr>
         <form action="/login" method='get'>
           <div class="form-group">
             <label for="email">Email address:</label>
-            <input type="email" class="form-control" name="userEmail" id="userEmail" style="width: 50%; margin-left: 25%;" placeholder="example@mail.com">
+            <input type="email" class="form-control" name="userEmail" id="userEmail1" style="width: 50%; margin-left: 25%;" placeholder="example@mail.com">
           </div>
-          <button type="submit" class="btn btn-primary">Log In</button>
+          <button type="submit" class="btn btn-primary" name = "btn_login">Log In</button>
         </form>
         </div>
         <div id="demo2" class="collapse">
@@ -28,9 +28,9 @@
         <form action="/newUser" method='post'>
           <div class="form-group">
             <label for="email">Email address:</label>
-            <input type="email" class="form-control" name="userEmail" id="userEmail" style="width: 50%; margin-left: 25%;" placeholder="example@mail.com">
+            <input type="email" class="form-control" name="userEmail" id="userEmail2" style="width: 50%; margin-left: 25%;" placeholder="example@mail.com">
           </div>
-          <button type="submit" class="btn btn-primary">Create</button>
+          <button type="submit" class="btn btn-primary" name = "btn_newUser">Create</button>
         </form>
         </div>
       </div>

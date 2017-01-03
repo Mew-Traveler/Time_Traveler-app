@@ -16,8 +16,10 @@ class TimeTravelerApp < Sinatra::Base
        dailyplan = result.value
        @dailyplan_info = dailyplan["dailyplan_info"]
        @house_info = dailyplan["house_info"]
+       puts "~~~~~~~~~"
        puts @dailyplan_info
        puts @house_info
+       puts "~~~~~~~~~"
     else
       puts "wrong params"
     end

@@ -20,7 +20,7 @@
       div class = "col-sm-4" style = "font-size: 25px; font-weight: bold" Address
       div class = "col-sm-1" style = "font-size: 25px; font-weight: bold" Bed
       div class = "col-sm-1" style = "font-size: 25px; font-weight: bold" Rank
-  - @data&.results&.each do |rent|
+  - @data&.results&.each_with_index do |rent, idx|
     form role="form" class = "row" action="/update/dailyplan" method='post' style="width: 100%; position: relative;"
       <input type="hidden" class="form-control" name="userEmail" id="userEmail" value="#{@userEmail}">
       <input type="hidden" class="form-control" name="projectDays" id="projectDays" value="#{@totalDays}">
@@ -56,7 +56,8 @@
           p #{rent[:roomRank]}
         div class = "col-sm-1"
         div class = "col-sm-1"
-          <button type="submit" class="btn btn-primary" style="position: relative; top: 0; border-radius: 5px; cursor: pointer;">Choose</button>      
+          - @tmp_name = "btn_choose" + idx.to_s
+          <button type="submit" class="btn btn-primary" name=#{@tmp_name} + idx.to_s style="position: relative; top: 0; border-radius: 5px; cursor: pointer;">Choose</button>      
   </div>
 
 <div class = "container">
@@ -69,7 +70,7 @@
         <input type="hidden" class="form-control" name="project_id" id="project_id" value="#{@project_id}">
         <input type="hidden" class="form-control" name="projectName" id="projectName" value="#{@projectName}">
         <input type="hidden" class="form-control" name="nthday" id="nthday" value="#{@nthday}">
-        <button type="submit" class="btn btn-primary" style="position: relative; top: 0;
+        <button type="submit" class="btn btn-primary" name="btn_back" style="position: relative; top: 0;
         border-radius: 5px;
         cursor: pointer;">BACK</button>
     </div>

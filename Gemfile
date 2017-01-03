@@ -9,6 +9,7 @@ gem 'econfig'
 gem 'rake'
 gem 'slim'
 gem 'rack-flash3'
+gem 'concurrent-ruby', '~> 1.0'
 gem 'Time_Traveler', '0.1.72'
 
 gem 'http'
@@ -31,10 +32,9 @@ group :test do
   gem 'minitest'
   gem 'minitest-rg'
 
-  gem 'rack-test'
-
-  gem 'vcr'
-  gem 'webmock'
+  gem 'watir-webdriver'
+  gem 'headless'
+  gem 'page-object'
 end
 
 group :development, :production do
