@@ -23,4 +23,25 @@ class TimeTravelerApp < Sinatra::Base
 
     slim :project_rent
   end
+
+  post "/update/dailyplan/house/?" do
+    reload_result = GetDailyplanWithNewHouse.call(params) 
+    @projectName = params[:projectName]
+    @totalDays = params[:projectDays]
+    @userEmail = params[:userEmail]
+    @nthday = params[:nthday]
+    @project_id = params[:project_id]
+
+    if reload_result.success?
+       dailyplan = reload_result.value
+       puts "+++++++++++++++"
+       puts dailyplan
+       puts "+++++++++++++++"
+       @dailyplan_info = dailyplan["dailyplan_info"]
+       @house_info = dailyplan["house_info"]
+      slim :project_rent  
+    else
+      puts "error"
+    end
+  end
 end
