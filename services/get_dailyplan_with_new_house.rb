@@ -39,9 +39,9 @@ class GetDailyplanWithNewHouse
       "house_info" => {
         "roomId" => input[:params]["roomId"],
         "roomName" => input[:params]["roomName"],
-        "roomPrice" => input[:params]["data.roomPrice"],
-        "address" => input[:params]["data.address"],
-        "airbnb_link" => input[:params]["data.airbnb_link"],
+        "roomPrice" => input[:params]["roomPrice"],
+        "address" => input[:params]["address"],
+        "airbnb_link" => input[:params]["airbnb_link"],
         "roomImg" => input[:params]["roomImg"],
         "bed" => input[:params]["bed"],
         "roomRank" => input[:params]["roomRank"],
