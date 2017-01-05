@@ -6,10 +6,16 @@ class GetDailyplanWithNewHouse
 
   def self.call(getdailyplan_updatehouse_request)
     Dry.Transaction(container: self) do
-      step :get_dailyplan
       step :update_house
+      step :get_dailyplan
+      step :return_value
     end.call(getdailyplan_updatehouse_request)
   end
+
+  register :update_house, lambda { |params|
+    update_result = async_house_update(params)
+    Right(params)
+  }
 
   register :get_dailyplan, lambda { |params|
     userEmail = params[:userEmail]
@@ -19,35 +25,26 @@ class GetDailyplanWithNewHouse
     if http_result.status == 200
       body = http_result.body
       dailyplan = JSON.parse(body)
-      Right(params)
+      Right(body: body, params: params)
     else
       Left(Error.new('Failed GET request'))
     end
   }
 
-  register :update_house, lambda { |params|
-    update_result = async_house_update(params)
-
+  register :return_value, lambda { |input|
+    plan = JSON.parse(input[:body])
+    puts plan
     return_value = {
-      "dailyplan_info" => {
-          "project_id" => params["project_id"],
-          "nthday" => params["nthday"],
-          "date" => params["date"],
-          "timeStart" => params["start"],
-          "timeEnd" => params["end"],
-          "locateStart" => params["origin"],
-          "locateEnd" => params["destination"],
-          "timeRemain" => params["timeRemain"],
-        },
+      "dailyplan_info" => plan["dailyplan_info"],
       "house_info" => {
-        "roomId" => params["roomId"],
-        "roomName" => params["roomName"],
-        "roomPrice" => params["data.roomPrice"],
-        "address" => params["data.address"],
-        "airbnb_link" => params["data.airbnb_link"],
-        "roomImg" => params["roomImg"],
-        "bed" => params["bed"],
-        "roomRank" => params["roomRank"],
+        "roomId" => input[:params]["roomId"],
+        "roomName" => input[:params]["roomName"],
+        "roomPrice" => input[:params]["data.roomPrice"],
+        "address" => input[:params]["data.address"],
+        "airbnb_link" => input[:params]["data.airbnb_link"],
+        "roomImg" => input[:params]["roomImg"],
+        "bed" => input[:params]["bed"],
+        "roomRank" => input[:params]["roomRank"],
       }
     }
     Right(return_value)
