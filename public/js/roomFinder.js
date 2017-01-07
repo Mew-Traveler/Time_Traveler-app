@@ -58,6 +58,14 @@ function getPlanifica(){
       	type: 'GET',
       	success: function(data){
           console.log("s to get findResturantbtn\n"+data['results_atrac'].length);
+          $('#findSiteModal').modal('show');
+          $.each(data["results_atrac"], function(index, element){
+            $('#findSiteModal').find('.modal-body').append('<img src="'+element.icon+'" id="imagepreview" style="width: 20px; height: 20px; padding-right: 5px" >')
+
+            $('#findSiteModal').find('.modal-body').append('<a>'+element.placename+'</a>');
+
+            $('#findSiteModal').find('.modal-body').append('<br/>');
+          })
 
           // $.each(data["results_atrac"], function(index, element) {
           //   $('#atrcslists a').append(
