@@ -1,5 +1,6 @@
 count = 0;
 $(function(){
+    $("#my_audio").get(0).play();
 
   // (window));
   $('#datetimepickerFrom').datetimepicker({
@@ -111,12 +112,12 @@ function getPlanifica(){
 
 function sitechosen(thisObj){
   ids = thisObj.attr('id').split("+");
-
+  c = count-1;
   $('#sitesarea').append( '<p count="'+count+'" id="'+thisObj.attr('id')+'">'+ids[1]+"</p>" );
   count++;
 
   if(count>0){
-    c = count-1;
+
     prv = $('p[count='+c+']').attr('id');
     console.log("---"+prv);
   }

@@ -20,11 +20,6 @@ class TimeTravelerApp < Sinatra::Base
     get_result = GetDailyplan.call(params)
     if new_result.success?
       project = new_result.value
-      puts project.projects[0][:day]
-      puts project.projects[0][:projectName]
-      puts "***********"
-      puts params
-      # @totalDays = project.projects[0][:day]
       @totalDays = (Date.parse(params[:endtiming])- Date.parse(params[:starttiming])).to_i
 
       flash[:notice] = 'Group successfully added'
@@ -37,7 +32,6 @@ class TimeTravelerApp < Sinatra::Base
       else
         flash[:error] = result.value.message
       end
-      #slim :project_rent
     else
       flash[:error] = new_result.value.message
     end
