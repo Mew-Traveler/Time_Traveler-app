@@ -3,6 +3,11 @@
   <div class="row">
     <div class="col-sm-2">
       <div class="panel-body" style="font-size: 50px;">Dailyplan</div>
+      <input type="hidden" class="form-control" name="projectName" id="projectName" value="#{@projectName}">
+      <input type="hidden" class="form-control" name="projectDays" id="projectDays" value="#{@projectDays}">
+      <input type="hidden" class="form-control" name="userEmail" id="userEmail" value="#{@userEmail}">
+      <input type="hidden" class="form-control" name="nthday" id="nthday" value="#{@nthday}">
+      <input type="hidden" class="form-control" name="project_id" id="project_id" value="#{@project_id}">
       <audio id="my_audio" src="super.mp3" loop="loop"></audio>
     </div>
   </div>
@@ -86,20 +91,19 @@
                 cursor: pointer;" RESTAURANT
 
 
-div class = "pager" style="position: fixed; width: 100%; bottom: 4%; left: 0;"
-  form role="form" method='post'
-	button.btn.btn-primary class = "previous" type="submit" style="position: absolute;
+div class="pager" style="position: fixed; width: 100%; bottom: 4%; left: 0;"
+	button.btn.btn-primary class="CANCEL" id="target_cancel" type="button" style="position: absolute;
 	  top: 1%;
 	  left: 0;
 	  margin-left: 3%;
 	  border-radius: 5px;
 	  margin: 5px;
-	  cursor: pointer;" Prev
-	button.btn.btn-primary class = "next" type="submit" style="position: absolute;
+	  cursor: pointer;" CANCEL
+	button.btn.btn-primary class="SAVE" id="target_save" type="button" style="position: absolute;
 	  top: 1%;
 	  right: 0;
 	  margin-right: 3%;
 	  border-radius: 5px;
 	  margin: 5px;
-	  cursor: pointer;" Next
+	  cursor: pointer;" SAVE
 include :addtarget_find_partial

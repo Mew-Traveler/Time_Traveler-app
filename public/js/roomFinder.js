@@ -13,6 +13,8 @@ $(function(){
     format: 'mm-dd-yyyy'
 
   });
+  targetsAct();
+
   getPlanifica();
 });
 
@@ -96,7 +98,7 @@ function getPlanifica(){
             }else{
               $('#findSiteModal').find('.modal-body').append('<span>Ni idea</span>');
             }
-            $('#findSiteModal').find('.modal-body').append('<a onclick="sitechosen($(this))" id="'+$("#searchSite").val()+"+"+element.placename+'"style="padding-left:5px">'+element.placename+'</a>');
+            $('#findSiteModal').find('.modal-body').append('<a onclick="sitechosen($(this))" types="restaurant" rating="'+element.rating+'"addr="'+element.address+'"id="'+$("#searchSite").val()+"+"+element.placename+'"style="padding-left:5px">'+element.placename+'</a>');
             $('#findSiteModal').find('.modal-body').append('<br/>');
           })
   			},
@@ -111,25 +113,71 @@ function getPlanifica(){
 }
 
 function sitechosen(thisObj){
+  // console.log("sitechosen rating"+ele.rating);
   ids = thisObj.attr('id').split("+");
   c = count-1;
   $('#sitesarea').append( '<p count="'+count+'" id="'+thisObj.attr('id')+'">'+ids[1]+"</p>" );
   count++;
-
-  if(count>0){
-
-    prv = $('p[count='+c+']').attr('id');
-    console.log("---"+prv);
-  }
   $.ajax({
-      url:"/planificac/route/"+thisObj.attr('id')+"?ori="+prv,
+      url:"/planificac/create",
+      contentType: "application/json; charset=utf-8",
       dataType: 'json',
-      type: 'GET',
+      type: 'POST',
+      data: JSON.stringify({
+        //project_id: $('#project_id').val(),
+        // dailyplans_id: $('#ids').val(),
+        type: thisObj.attr('types'),
+        rating: thisObj.attr('rating'),
+        site_name: ids[1],
+        address: thisObj.attr('addr'),
+      }),
       success: function(data){
-        console.log("sitechosen\n"+data.length);
+        console.log("target_save success");
       },
-      error: function(data){
-        console.log("failed to get friends"+data);
+      error: function(){
+        console.log("target_save failed");
       }
     });
+  // if(count>0){
+  //
+  //   prv = $('p[count='+c+']').attr('id');
+  //   console.log("---"+prv);
+  // }
+  // $.ajax({
+  //     //url:"/planificac/route/"+thisObj.attr('id')+"?ori="+prv,
+  //     url:"/planificac/route/Taipei?ori=Hsinchu",
+  //     dataType: 'json',
+  //     type: 'GET',
+  //     success: function(data){
+  //       console.log("sitechosen\n"+data.length);
+  //     },
+  //     error: function(data){
+  //       console.log("failed to get friends"+data);
+  //     }
+  //   });
+}
+
+function targetsAct(){
+  $('#target_cancel').on("click",function(){
+    projectName = $('#projectName').val();
+    projectDays = $('#projectDays').val();
+    userEmail = $('#userEmail').val();
+    nthday = $('#nthday').val();
+    project_id = $('#project_id').val();
+
+    window.location.href='/planificac/cancel/?projectName="'+projectName+'"&projectDays="'+projectDays+'"&userEmail="'+userEmail+'"&nthday="'+nthday+'"&project_id="'+project_id+'"';
+  });
+
+  $('#target_save').on("click",function(){
+    $.ajax({
+        url:"/planificac/create/",
+        type: 'POST',
+        success: function(){
+          console.log("target_save success");
+        },
+        error: function(){
+          console.log("target_save failed");
+        }
+      });
+  });
 }
