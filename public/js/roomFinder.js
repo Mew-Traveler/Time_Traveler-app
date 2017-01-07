@@ -11,6 +11,7 @@ $(function(){
     format: 'dd-mm-yyyy'
 
   });
+  getPlanifica();
 });
 
 function getPlanifica(){
@@ -58,12 +59,12 @@ function getPlanifica(){
       	success: function(data){
           console.log("s to get findResturantbtn\n"+data['results_atrac'].length);
 
-          $.each(data["results_atrac"], function(index, element) {
-            $('#atrcslists a').append(
-              '<a href=www.google.com>'+element.placename+'</a>'
-            );
-
-          });
+          // $.each(data["results_atrac"], function(index, element) {
+          //   $('#atrcslists a').append(
+          //     '<a href=www.google.com>'+element.placename+'</a>'
+          //   );
+          //
+          // });
   			},
       	error: function(data){
       		console.log("failed to get friends"+data);
