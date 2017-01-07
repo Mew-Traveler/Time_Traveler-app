@@ -1,14 +1,15 @@
+count = 0;
 $(function(){
 
   // (window));
   $('#datetimepickerFrom').datetimepicker({
     timepicker:false,
-    format: 'dd-mm-yyyy'
+    format: 'mm-dd-yyyy'
 
   });
   $('#datetimepickerTo').datetimepicker({
     timepicker:false,
-    format: 'dd-mm-yyyy'
+    format: 'mm-dd-yyyy'
 
   });
   getPlanifica();
@@ -23,12 +24,26 @@ function getPlanifica(){
       	dataType: 'json',
       	type: 'GET',
       	success: function(data){
-          console.log("s to get friends");
+          console.log("s Funto get friends");
+          $('#findSiteModal').modal('show');
+          $.each(data["results_atrac"], function(index, element){
+            $('#findSiteModal').find('.modal-body').append('<img src="'+element.icon+'" id="imagepreview" style="width: 20px; height: 20px;padding-right: 5px" >')
+            if(element.rating){
+              $('#findSiteModal').find('.modal-body').append('<span>✮'+element.rating+'</span>');
+            }else{
+              $('#findSiteModal').find('.modal-body').append('<span>Ni idea</span>');
+            }
+            $('#findSiteModal').find('.modal-body').append('<a onclick="sitechosen(this)" id="'+$("#searchSite").val()+"+"+element.placename+'"style="padding-left:5px">'+element.placename+'</a>');
+            $('#findSiteModal').find('.modal-body').append('<br/>');
+          })
 
   			},
   			// callback();
       	error: function(){
       		console.log("failed to get friends");
+          $('#findSiteModal').modal('show');
+          $('#findSiteModal').find('.modal-body').append('<p style="text-align:center;font-size:36px;color:red;">Google Restriction</p>');
+
       	}
       });
   });
@@ -41,10 +56,24 @@ function getPlanifica(){
       	dataType: 'json',
       	type: 'GET',
       	success: function(data){
-          console.log("s to get findparkbtn");
+          console.log("s to Parkget findparkbtn");
+          $('#findSiteModal').modal('show');
+          $.each(data["results_atrac"], function(index, element){
+            $('#findSiteModal').find('.modal-body').append('<img src="'+element.icon+'" id="imagepreview" style="width: 20px; height: 20px;padding-right: 5px" >')
+            if(element.rating){
+              $('#findSiteModal').find('.modal-body').append('<span>✮'+element.rating+'</span>');
+            }else{
+              $('#findSiteModal').find('.modal-body').append('<span>Ni idea</span>');
+            }
+            $('#findSiteModal').find('.modal-body').append('<a onclick="sitechosen(this)" id="'+$("#searchSite").val()+"+"+element.placename+'"style="padding-left:5px">'+element.placename+'</a>');
+            $('#findSiteModal').find('.modal-body').append('<br/>');
+          })
       	},
       	error: function(){
       		console.log("failed to get friends");
+          $('#findSiteModal').modal('show');
+          $('#findSiteModal').find('.modal-body').append('<p style="text-align:center;font-size:36px;color:red;">Google Restriction</p>');
+
       	}
       });
   });
@@ -60,23 +89,46 @@ function getPlanifica(){
           console.log("s to get findResturantbtn\n"+data['results_atrac'].length);
           $('#findSiteModal').modal('show');
           $.each(data["results_atrac"], function(index, element){
-            $('#findSiteModal').find('.modal-body').append('<img src="'+element.icon+'" id="imagepreview" style="width: 20px; height: 20px; padding-right: 5px" >')
-
-            $('#findSiteModal').find('.modal-body').append('<a>'+element.placename+'</a>');
-
+            $('#findSiteModal').find('.modal-body').append('<img src="'+element.icon+'" id="imagepreview" style="width: 20px; height: 20px;padding-right: 5px" >')
+            if(element.rating){
+              $('#findSiteModal').find('.modal-body').append('<span>✮'+element.rating+'</span>');
+            }else{
+              $('#findSiteModal').find('.modal-body').append('<span>Ni idea</span>');
+            }
+            $('#findSiteModal').find('.modal-body').append('<a onclick="sitechosen($(this))" id="'+$("#searchSite").val()+"+"+element.placename+'"style="padding-left:5px">'+element.placename+'</a>');
             $('#findSiteModal').find('.modal-body').append('<br/>');
           })
-
-          // $.each(data["results_atrac"], function(index, element) {
-          //   $('#atrcslists a').append(
-          //     '<a href=www.google.com>'+element.placename+'</a>'
-          //   );
-          //
-          // });
   			},
       	error: function(data){
       		console.log("failed to get friends"+data);
+          $('#findSiteModal').modal('show');
+          $('#findSiteModal').find('.modal-body').append('<p style="text-align:center;font-size:36px;color:red;">Google Restriction</p>');
+
       	}
       });
   });
+}
+
+function sitechosen(thisObj){
+  ids = thisObj.attr('id').split("+");
+
+  $('#sitesarea').append( '<p count="'+count+'" id="'+thisObj.attr('id')+'">'+ids[1]+"</p>" );
+  count++;
+
+  if(count>0){
+    c = count-1;
+    prv = $('p[count='+c+']').attr('id');
+    console.log("---"+prv);
+  }
+  $.ajax({
+      url:"/planificac/route/"+thisObj.attr('id')+"?ori="+prv,
+      dataType: 'json',
+      type: 'GET',
+      success: function(data){
+        console.log("sitechosen\n"+data.length);
+      },
+      error: function(data){
+        console.log("failed to get friends"+data);
+      }
+    });
 }

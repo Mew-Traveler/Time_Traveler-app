@@ -44,4 +44,24 @@ class TimeTravelerApp < Sinatra::Base
       flash[:error] = result.value.message
     end
   end
+
+  get "/planificac/route/:query/?" do
+    puts "-----hello----"
+    puts params
+    #slim :addtarget
+    # puts params
+    #
+    # puts url.split("?")[1]
+    # result = LoadGoogleResults.call(params[:query],params[:type])
+    # if result.success?
+    #   flash[:notice] = 'Here is the information'
+    # #
+    #   content_type 'application/json'
+    #   puts result.value
+    #   result.value
+    #
+    # else
+    #   flash[:error] = result.value.message
+    # end
+  end
 end

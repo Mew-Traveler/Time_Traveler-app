@@ -22,6 +22,8 @@ class TimeTravelerApp < Sinatra::Base
       project = new_result.value
       puts project.projects[0][:day]
       puts project.projects[0][:projectName]
+      puts "***********"
+      puts params
       # @totalDays = project.projects[0][:day]
       @totalDays = (Date.parse(params[:endtiming])- Date.parse(params[:starttiming])).to_i
 
