@@ -21,7 +21,7 @@
       div class = "col-sm-1" style = "font-size: 25px; font-weight: bold" Bed
       div class = "col-sm-1" style = "font-size: 25px; font-weight: bold" Rank
   - @data&.results&.each_with_index do |rent, idx|
-    form role="form" class = "row" action="/update/dailyplan" method='post' style="width: 100%; position: relative;"
+    form role="form" class = "row" action="/update/dailyplan/house/" method='post' style="width: 100%; position: relative;"
       <input type="hidden" class="form-control" name="userEmail" id="userEmail" value="#{@userEmail}">
       <input type="hidden" class="form-control" name="projectDays" id="projectDays" value="#{@totalDays}">
       <input type="hidden" class="form-control" name="projectName" id="projectName" value="#{@projectName}">

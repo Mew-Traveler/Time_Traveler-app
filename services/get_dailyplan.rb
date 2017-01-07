@@ -12,11 +12,7 @@ class GetDailyplan
 
 
   register :get_dailyplan_from_api, lambda { |get_dailyplan_request|
-    puts "------------------"
-    puts get_dailyplan_request
-    puts get_dailyplan_request[:userEmail]
     userEmail = get_dailyplan_request[:userEmail]
-
     project_id = get_dailyplan_request[:project_id]
     nthday = get_dailyplan_request[:nthday]
     http_result = HTTP.get("#{TimeTravelerApp.config.Time_Traveler_API}/project/#{userEmail}/#{project_id}/#{nthday}")
