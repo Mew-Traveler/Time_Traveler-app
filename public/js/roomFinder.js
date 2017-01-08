@@ -5,12 +5,12 @@ $(function(){
   // (window));
   $('#datetimepickerFrom').datetimepicker({
     timepicker:false,
-    format: 'mm-dd-yyyy'
+    // format: 'mm-dd-yyyy'
 
   });
   $('#datetimepickerTo').datetimepicker({
     timepicker:false,
-    format: 'mm-dd-yyyy'
+    //format: 'mm-dd-yyyy'
 
   });
   targetsAct();
@@ -118,18 +118,22 @@ function sitechosen(thisObj){
   c = count-1;
   $('#sitesarea').append( '<p count="'+count+'" id="'+thisObj.attr('id')+'">'+ids[1]+"</p>" );
   count++;
+  console.log("roomFinder"+$('#nthday').val());
+  console.log("roomFinder"+$('#project_id').val());
+
   $.ajax({
       url:"/planificac/create",
       contentType: "application/json; charset=utf-8",
       dataType: 'json',
       type: 'POST',
       data: JSON.stringify({
-        //project_id: $('#project_id').val(),
+        project_id: $('#project_id').val(),
         // dailyplans_id: $('#ids').val(),
         type: thisObj.attr('types'),
         rating: thisObj.attr('rating'),
         site_name: ids[1],
         address: thisObj.attr('addr'),
+        nthday: $('#nthday').val()
       }),
       success: function(data){
         console.log("target_save success");

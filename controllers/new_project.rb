@@ -10,7 +10,9 @@ class TimeTravelerApp < Sinatra::Base
     new_result = CreateProject.call(create_request)
 
     project = new_result.value
-    @totalDays = project.projects[0][:day]
+    puts create_request[:endtiming]
+
+    @totalDays = (Date.parse(create_request[:endtiming])- Date.parse(params[:starttiming])).to_i
     @project_id = project.projects[0][:id]
 
     params[:nthday] = @nthday
@@ -20,14 +22,14 @@ class TimeTravelerApp < Sinatra::Base
     get_result = GetDailyplan.call(params)
     if new_result.success?
       project = new_result.value
-      @totalDays = (Date.parse(params[:endtiming])- Date.parse(params[:starttiming])).to_i
 
-      flash[:notice] = 'Group successfully added'
+      flash[:notice] = 'Project successfully added'
 
       result = LogIn.call(params['userEmail'])
       if result.success?
         @all_projects = result.value
         @user = params['userEmail']
+        @totalDays = params[:projectDays]
         slim :lobby
       else
         flash[:error] = result.value.message

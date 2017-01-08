@@ -1,25 +1,32 @@
-#
-# # frozen_string_literal: true
-#
-# # Gets list of all groups from API
-#
-# require 'json'
-# class LoadGoogleResults
-#   extend Dry::Monads::Either::Mixin
-#
-#   def self.call(query,type)
-#     puts "-----LoadGoogleResults---------"
-#     puts query
-#     begin
-#       results = HTTP.get("#{TimeTravelerApp.config.Time_Traveler_API}/dailyplan/findSite/#{query}+#{type}")
-#       #puts results.body.to_s
-#       Right(results.body.to_s)
-#
-#       # Right(AtraccionesRepresenter.new(Atracciones.new)
-#       #                        .from_json(results.body.to_s))
-#     rescue
-#       puts "Oops LoadGoogleResults"
-#       Left(Error.new('Something Error n LoadProjects.'))
-#     end
-#   end
-# end
+# frozen_string_literal: true
+
+class GetDailyTarget
+  extend Dry::Monads::Either::Mixin
+  extend Dry::Container::Mixin
+
+  def self.call(get_dailyplan_request)
+    Dry.Transaction(container: self) do
+      step :get_dailytarget_from_api
+    end.call(get_dailyplan_request)
+  end
+
+
+  register :get_dailytarget_from_api, lambda { |get_dailytarget_request|
+
+    project_id = get_dailytarget_request[:project_id]
+    nthday = get_dailytarget_request[:nthday]
+    http_result = HTTP.get("#{TimeTravelerApp.config.Time_Traveler_API}/addtarget/load/#{project_id}/#{nthday}/?")
+    #http_result = HTTP.get("#{TimeTravelerApp.config.Time_Traveler_API}/project/#{userEmail}/#{project_id}/#{nthday}")
+    puts "-------------------"
+
+    puts http_result
+    if http_result.status == 200
+      body = http_result.body
+      dailytarget = JSON.parse(body)
+
+      Right(dailytarget)
+    else
+      Left(Error.new('dailytarget Error.'))
+    end
+  }
+end
