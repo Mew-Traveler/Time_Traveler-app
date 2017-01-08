@@ -8,7 +8,7 @@
       <input type="hidden" class="form-control" name="userEmail" id="userEmail" value="#{@userEmail}">
       <input type="hidden" class="form-control" name="nthday" id="nthday" value="#{@nthday}">
       <input type="hidden" class="form-control" name="project_id" id="project_id" value="#{@project_id}">
-      <audio id="my_audio" src="super.mp3" loop="loop"></audio>
+      <audio id="my_audio" src="/music/super.mp3" loop="loop"></audio>
     </div>
   </div>
   <div class="row">
@@ -107,3 +107,5 @@ div class="pager" style="position: fixed; width: 100%; bottom: 4%; left: 0;"
 	  margin: 5px;
 	  cursor: pointer;" SAVE
 include :addtarget_find_partial
+javascript:
+  $("#my_audio").get(0).play();

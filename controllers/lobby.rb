@@ -1,7 +1,6 @@
 class TimeTravelerApp < Sinatra::Base
 
   get "/goto/project/?" do
-    puts params
 
     @projectName = params[:projectName]
     # @totalDays = params[:projectDays]
