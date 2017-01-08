@@ -5,12 +5,10 @@ $(function(){
   // (window));
   $('#datetimepickerFrom').datetimepicker({
     timepicker:false,
-    format: 'mm-dd-yyyy'
 
   });
   $('#datetimepickerTo').datetimepicker({
     timepicker:false,
-    format: 'mm-dd-yyyy'
 
   });
   targetsAct();
