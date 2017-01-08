@@ -3,9 +3,15 @@
 # TimeTraveler web service
 class TimeTravelerApp < Sinatra::Base
 
-  get "/planifica/" do
+  get "/planifica/?" do
     puts "---------"
     puts params
+    @projectName = params[:projectName]
+    @totalDays = params[:projectDays]
+    @userEmail = params[:userEmail]
+    @nthday = params[:nthday]
+    @project_id = params[:project_id]
+
     slim :addtarget
 
   end

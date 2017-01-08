@@ -1,6 +1,6 @@
 count = 0;
 $(function(){
-    $("#my_audio").get(0).play();
+    // $("#my_audio").get(0).play();
 
   // (window));
   $('#datetimepickerFrom').datetimepicker({
@@ -164,8 +164,7 @@ function targetsAct(){
     userEmail = $('#userEmail').val();
     nthday = $('#nthday').val();
     project_id = $('#project_id').val();
-
-    window.location.href='/planificac/cancel/?projectName="'+projectName+'"&projectDays="'+projectDays+'"&userEmail="'+userEmail+'"&nthday="'+nthday+'"&project_id="'+project_id+'"';
+    window.location.href='/goto/project?projectName='+projectName+'&projectDays='+projectDays+'&userEmail='+userEmail+'&nthday='+nthday+'&project_id='+project_id;
   });
 
   $('#target_save').on("click",function(){
