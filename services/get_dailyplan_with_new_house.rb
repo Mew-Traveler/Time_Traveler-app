@@ -33,7 +33,6 @@ class GetDailyplanWithNewHouse
 
   register :return_value, lambda { |input|
     plan = JSON.parse(input[:body])
-    puts plan
     return_value = {
       "dailyplan_info" => plan["dailyplan_info"],
       "house_info" => {

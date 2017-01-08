@@ -15,8 +15,6 @@ class TimeTravelerApp < Sinatra::Base
        dailyplan = reload_result.value
        @dailyplan_info = dailyplan["dailyplan_info"]
        @house_info = dailyplan["house_info"]
-       puts @dailyplan_info
-       puts @house_info
     else
       puts "wrong params"
     end
@@ -34,9 +32,6 @@ class TimeTravelerApp < Sinatra::Base
 
     if reload_result.success?
        dailyplan = reload_result.value
-       puts "+++++++++++++++"
-       puts dailyplan
-       puts "+++++++++++++++"
        @dailyplan_info = dailyplan["dailyplan_info"]
        @house_info = dailyplan["house_info"]
       slim :project_rent  

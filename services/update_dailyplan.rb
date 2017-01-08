@@ -12,6 +12,9 @@ class UpdateDailyplan
 
 
   register :post_new_dailyplan_to_api, lambda { |update_dailyplan_request|
+
+    puts "here comes the data with SAVE!!!!!!!!!!!!"
+    puts update_dailyplan_request
     http_result = HTTP.post("#{TimeTravelerApp.config.Time_Traveler_API}/day/newroom/", 
       json: {
         dailyplanInfo: {
