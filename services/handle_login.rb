@@ -14,7 +14,7 @@ class LogIn
 
   register :go_login, lambda { |userEmail|
     begin
-      result = HTTP.get("#{TimeTravelerApp.config.Time_Traveler_API}/me/#{userEmail}")
+      result = HTTP.get("#{TimeTravelerApp.config.TIME_TRAVELER_API}/me/#{userEmail}")
       Right(result)
     rescue
       Left(Error.new('Something error for LogIn request.'))

@@ -15,7 +15,7 @@ class UpdateDailyplan
 
     puts "here comes the data with SAVE!!!!!!!!!!!!"
     puts update_dailyplan_request
-    http_result = HTTP.post("#{TimeTravelerApp.config.Time_Traveler_API}/day/newroom/", 
+    http_result = HTTP.post("#{TimeTravelerApp.config.TIME_TRAVELER_API}/day/newroom/", 
       json: {
         dailyplanInfo: {
           project_id: update_dailyplan_request["project_id"],

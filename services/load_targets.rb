@@ -11,7 +11,7 @@ class LoadGoogleResults
     puts "-----LoadGoogleResults---------"
     puts query
     begin
-      results = HTTP.get("#{TimeTravelerApp.config.Time_Traveler_API}/dailyplan/findSite/#{query}+#{type}")
+      results = HTTP.get("#{TimeTravelerApp.config.TIME_TRAVELER_API}/dailyplan/findSite/#{query}+#{type}")
       puts results.body.to_s
       Right(results.body.to_s)
 

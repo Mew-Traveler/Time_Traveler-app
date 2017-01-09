@@ -15,8 +15,8 @@ class GetDailyTarget
 
     project_id = get_dailytarget_request[:project_id]
     nthday = get_dailytarget_request[:nthday]
-    http_result = HTTP.get("#{TimeTravelerApp.config.Time_Traveler_API}/addtarget/load/#{project_id}/#{nthday}/?")
-    #http_result = HTTP.get("#{TimeTravelerApp.config.Time_Traveler_API}/project/#{userEmail}/#{project_id}/#{nthday}")
+    http_result = HTTP.get("#{TimeTravelerApp.config.TIME_TRAVELER_API}/addtarget/load/#{project_id}/#{nthday}/?")
+    #http_result = HTTP.get("#{TimeTravelerApp.config.TIME_TRAVELER_API}/project/#{userEmail}/#{project_id}/#{nthday}")
     puts "-------------------"
 
     puts http_result

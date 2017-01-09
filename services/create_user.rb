@@ -23,7 +23,7 @@ class CreateUser
   }
 
   register :call_api_to_create_user, lambda { |create_request|
-    result = HTTP.post("#{TimeTravelerApp.config.Time_Traveler_API}/createUser/",
+    result = HTTP.post("#{TimeTravelerApp.config.TIME_TRAVELER_API}/createUser/",
                     json: { userEmail: create_request[:userEmail]})
     if result.status == 200
       Right(result)

@@ -21,7 +21,7 @@ class GetDailyplanWithNewHouse
     userEmail = params[:userEmail]
     project_id = params[:project_id]
     nthday = params[:nthday]
-    http_result = HTTP.get("#{TimeTravelerApp.config.Time_Traveler_API}/project/#{userEmail}/#{project_id}/#{nthday}")
+    http_result = HTTP.get("#{TimeTravelerApp.config.TIME_TRAVELER_API}/project/#{userEmail}/#{project_id}/#{nthday}")
     if http_result.status == 200
       body = http_result.body
       dailyplan = JSON.parse(body)

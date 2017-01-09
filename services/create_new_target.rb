@@ -29,7 +29,7 @@ class CreateNewTarget
       puts "url_request.call_api_to_load_dailybasic"
       params = JSON.parse(url_request.to_s)
       puts params
-      Right(HTTP.post("#{TimeTravelerApp.config.Time_Traveler_API}/dailyplan",
+      Right(HTTP.post("#{TimeTravelerApp.config.TIME_TRAVELER_API}/dailyplan",
                       json: { type: params["type"], rating:params["rating"], address:params["address"], site_name: params["site_name"]}))
 
     rescue

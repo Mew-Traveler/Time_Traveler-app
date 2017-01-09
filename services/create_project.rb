@@ -24,7 +24,7 @@ class CreateProject
   }
 
   register :call_api_to_create_project, lambda { |create_request|
-    http_result = HTTP.post("#{TimeTravelerApp.config.Time_Traveler_API}/project/create/",
+    http_result = HTTP.post("#{TimeTravelerApp.config.TIME_TRAVELER_API}/project/create/",
                     json: { userEmail: create_request[:userEmail], projectName: create_request[:projectName], dateStart: create_request[:starttiming], dateEnd: create_request[:endtiming]})
     if http_result.status == 200
        Right(ProjectsRepresenter.new(Projects.new).from_json(http_result.body))
