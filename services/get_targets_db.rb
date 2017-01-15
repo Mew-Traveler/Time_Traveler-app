@@ -1,19 +1,18 @@
+#{API_VER}/dailyplan/DBfindSite/:query?
 
 # frozen_string_literal: true
 
 # Gets list of all groups from API
 
 require 'json'
-class LoadGoogleResults
+class DBLoadGoogleResults
   extend Dry::Monads::Either::Mixin
 
   def self.call(query,type)
-    puts "-----LoadGoogleResults---------"
+    puts "-----DBLoadGoogleResults---------"
     puts query
     begin
-      # results = HTTP.get("#{TimeTravelerApp.config.Time_Traveler_API}/dailyplan/findSite/#{query}+#{type}")
-      results = HTTP.get("#{TimeTravelerApp.config.Time_Traveler_API}/dailyplan/WfindSite/#{query}+#{type}")
-
+      results = HTTP.get("#{TimeTravelerApp.config.Time_Traveler_API}/dailyplan/DBfindSite/#{query}+#{type}")
       puts results.body.to_s
       Right(results.body.to_s)
 

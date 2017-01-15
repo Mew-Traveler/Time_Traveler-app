@@ -11,7 +11,7 @@ class TimeTravelerApp < Sinatra::Base
     @userEmail = params[:userEmail]
     @nthday = params[:nthday]
     @project_id = params[:project_id]
-
+    @api_url = TimeTravelerApp.config.API_URL
     slim :addtarget
 
   end
@@ -19,13 +19,34 @@ class TimeTravelerApp < Sinatra::Base
     puts "-----hello----"
     puts params[:type]
 
-    result = LoadGoogleResults.call(params[:query],params[:type])
+    #result = LoadGoogleResults.call(params[:query],params[:type])
+    result = DBLoadGoogleResults.call(params[:query],params[:type])
     if result.success?
       flash[:notice] = 'Here is the information'
     #
       content_type 'application/json'
       puts result.value
       result.value
+
+    else
+      flash[:error] = result.value.message
+    end
+  end
+  #new for modal showing
+  get "/planificac/Wfind/:query/?" do
+    puts "-----hello----"
+    puts params[:type]
+
+    result = LoadGoogleResults.call(params[:query],params[:type])
+
+    if result.success?
+      flash[:notice] = 'Here is the information'
+      content_type 'application/json'
+      {
+        channelId:result.value['channel_id'],apiURL:"http://localhost:3000"
+      }.to_json
+
+    #
 
     else
       flash[:error] = result.value.message
